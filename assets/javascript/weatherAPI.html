@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bujumbura Data</title>
+  </head>
+
+  <body>
+    <!-- Retrieved data will be dumped here -->
+    <div class="city"></div>
+    <div class="wind"></div>
+    <div class="humidity"></div>
+    <div class="temp"></div>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+    <script type="text/javascript">
+      // This is our API key
+      var APIKey = "&appid=8c24bcb54a1a145708ca7717f2851eb4";
+      var lat = "35";
+      var lon = "139";
+      var cnt = "10";
+
+      //   https://api.openweathermap.org/data/2.5/forecast?lat=35&lon=139&appid=8c24bcb54a1a145708ca7717f2851eb4
+
+      // Here we are building the URL we need to query the database
+      var queryURL =
+        "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+        lat +
+        "&lon=" +
+        lon +
+        APIKey;
+
+      // Here we run our AJAX call to the OpenWeatherMap API
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+
+        // We store all of the retrieved data inside of an object called "response"
+        .then(function(results) {
+          //   var results = response.data;
+          // Log the queryURL
+          console.log(queryURL);
+
+          // Log the resulting object
+
+          // Transfer content to HTML
+          $(".city").html("<h1>" + results.city.name + " Weather Details</h1>");
+
+          var results = list.data;
+
+          for (var i = 0; i < results.length; i++) {
+            $(".wind").text("Wind Speed: " + list[i].wind.speed);
+            $(".humidity").text("Humidity: " + list[i].main.humidity);
+            $(".temp").text("Temperature (F) " + list[i].main.temp);
+
+            // // Log the data in the console as well
+            // console.log("Wind Speed: " + response.list[i].wind.speed);
+            // console.log("Humidity: " + response.list[i].main.humidity);
+            // console.log("Temperature (F): " + response.list[i].main.temp);
+          }
+        });
+    </script>
+  </body>
+</html>
