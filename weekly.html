@@ -4,7 +4,7 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- link to reset -->
-    <link rel="stylesheet" type="text/css" href="assets/styles/reset.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/styles/reset.css"> -->
     <!-- link to external custom stylesheet -->
     <link rel="stylesheet" type="text/css" href="assets/styles/styles.css">
     <link rel="stylesheet" type="text/css" href="assets/styles/weekly.css">
@@ -20,7 +20,7 @@
 <body>
 <header>
     <!-- START NAVBAR -->
-    <div class="container">
+    <div class="container-fluid">
         <nav>
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo">STUDY BUDDY</a>
@@ -36,70 +36,67 @@
   </header>
 
   <main>
-      <div class="container">
-          <table id="daysOfWeek">
-              <tr>
-                  <th>MONDAY</th>
-                  <th>TUESDAY</th>
-                  <th>WEDNESDAY</th>
-                  <th>THURSDAY</th>
-                  <th>FRIDAY</th>
-                  <th>SATURDAY</th>
-                  <th>SUNDAY</th>
-              </tr>
-              <tr id="returnFromSchedule">
-                <td id="mondayData"></td>
-                <td id="tuesdayData"></td>
-                <td id="wednesdayData"></td>
-                <td id="thursdayData"></td>
-                <td id="fridayData"></td>
-                <td id="saturdayData"></td>
-                <td id="sundayData"></td>
-              </tr>
-              <tr id="detailButton">
-                  <td><button id="viewDetails">MONDAY</button></td>
-                  <td><button id="viewDetails">TUESDAY</button></td>
-                  <td><button id="viewDetails">WEDNESDAY</button></td>
-                  <td><button id="viewDetails">THURSDAY</button></td>
-                  <td><button id="viewDetails">FRIDAY</button></td>
-                  <td><button id="viewDetails">SATURDAY</button></td>
-                  <td><button id="viewDetails">SUNDAY</button></td>
-              </tr>
-          </table>
+    <div class="container">
+      <div class="flex-container">
+          <div class="col">Hours</div>
+          <div class="col">Monday</div>
+          <div class="col">Tuesday</div>
+          <div class="col">Wednesday</div>
+          <div class="col">Thursday</div>
+          <div class="col">Friday</div>
+          <div class="col">Saturday</div>
+          <div class="col">Sunday</div>
       </div>
+      <div class="flex-container-data">
+          <div class="flex-hours">
+              <div>9</div>
+              <hr>
+              <div>11</div>
+              <hr>
+              <div>1</div>
+              <hr>
+              <div>3</div>
+              <hr>
+              <div>5</div>
+              <hr>
+              <div>7</div>
+              <hr>
+              <div>9</div>
+            </div>
+          <div class="dailyData" id="mondayData">DATA</div>
+          <div class="dailyData" id="tuesdayData">DATA</div>
+          <div class="dailyData" id="wednesdayData">DATA</div>
+          <div class="dailyData" id="thursdayData">DATA</div>
+          <div class="dailyData" id="fridayData">DATA</div>
+          <div class="dailyData" id="saturdayData">DATA</div>
+          <div class="dailyData" id="sundayData">DATA</div>
+      </div>
+      <div class="flex-container">
+          <div class="col">Hours</div>
+          <div class="col">Monday</div>
+          <div class="col">Tuesday</div>
+          <div class="col">Wednesday</div>
+          <div class="col">Thursday</div>
+          <div class="col">Friday</div>
+          <div class="col">Saturday</div>
+          <div class="col">Sunday</div>
+      </div>
+
+      <div class="flex-container-button">
+          <button id="switchWeek">SWITCH WEEK</button>
+          <button id="mondayView">VIEW THIS DAY</button>
+          <button id="tuesdayView">VIEW THIS DAY</button>
+          <button id="wednesdayView">VIEW THIS DAY</button>
+          <button id="mondathursdayView">VIEW THIS DAY</button>
+          <button id="fridayView">VIEW THIS DAY</button>
+          <button id="saturdayView">VIEW THIS DAY</button>
+          <button id="sundayView">VIEW THIS DAY</button>
+      </div>
+    </div>
     
   </main>
 
     
-    <!-- START FOOTER -->
-    <footer class="page-footer">
-            <div class="container">
-              <div class="row">
-                <div class="col l6 s12">
-                  <h5 class="white-text">Footer Content</h5>
-                  <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                  <h5 class="white-text">Links</h5>
-                  <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="footer-copyright">
-              <div class="container">
-              © 2014 Copyright Text
-              <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-              </div>
-            </div>
-          </footer>
-    <!-- END FOOTER -->
-
-
           <script src="assets/javascript/javascript.js"></script>
 </body>
 </html>
