@@ -15,6 +15,7 @@ body {
 .flex-container {
     display: flex;
     justify-content: space-around;
+    background: rgba(40, 80, 160, .5);
 }
 
 .flex-container-data {
