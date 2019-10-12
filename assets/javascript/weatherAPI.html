@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>WeatherApp</title>
+  </head>
+
+  <body>
+    <!-- Retrieved data will be dumped here -->
+    <div class="city"></div>
+    <div class="wind"></div>
+    <div class="humidity"></div>
+    <div class="temp"></div>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+    <script type="text/javascript">
+      // This is our API key
+      var APIKey = "&appid=8c24bcb54a1a145708ca7717f2851eb4";
+      var lat = 47;
+      var lon = 122;
+      //   https://api.openweathermap.org/data/2.5/forecast?lat=35&lon=139&appid=8c24bcb54a1a145708ca7717f2851eb4
+      // Here we are building the URL we need to query the database
+      var queryURL =
+        "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" +
+        lat +
+        "&lon=" +
+        lon +
+        "&cnt=14" +
+        APIKey;
+
+      // Here we run our AJAX call to the OpenWeatherMap API
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+      .then(function(results) {
+        // Log the queryURL
+        console.log(queryURL);
+        // Log the resulting object
+        // Transfer content to HTML
+        $(".city").html("<h1>" + results.city.name + " Weather Details</h1>");
+        console.log(results);
+
+        for (var i = 0; i < 5; i++) {
+          $(".wind").text("Wind Speed: " + results.list[i].speed);
+          $(".humidity").text("Humidity: " + results.list[i].humidity);
+          $(".temp").text("Temperature (F) " + results.list[i].temp.day);
+          // // Log the data in the console as well
+        }
+        console.log("Wind Speed: " + results.list[i].speed);
+        console.log("Humidity: " + results.list[i].humidity);
+        console.log("Temperature (F): " + results.list[i].temp);
+      });
+    </script>
+  </body>
+</html>
