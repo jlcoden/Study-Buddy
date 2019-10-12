@@ -20,7 +20,7 @@
     <title>NERDHERD</title>
 </head>
 <body>
-<header>
+  <header>
     <!-- START NAVBAR -->
     <div class="container-fluid">
         <nav>
@@ -37,20 +37,24 @@
     <!-- END NAVBAR -->
   </header>
 
-  <main>
-    <div class="container">
-      <div class="flex-container">
+      <div class="flex-container current week">
           <div class="col">Hours</div>
-          <div class="col">Monday</div>
-            <div id="dateHolder"></div>
+          <div class="col monday">Monday</div>
           <div class="col">Tuesday</div>
           <div class="col">Wednesday</div>
           <div class="col">Thursday</div>
           <div class="col">Friday</div>
-          <div class="col">Saturday</div>
+          <div class="col saturday">
+            <div class="header">
+              <span class="dayName">Saturday</span><span class="dayNumber"></span>
+            </div>
+            <div class="calendar-data">
+
+            </div> 
+          </div>
           <div class="col">Sunday</div>
       </div>
-      <div class="flex-container-data">
+      <!-- <div class="flex-container-data">
           <div class="flex-hours">
               <div>9</div>
               <hr>
@@ -73,8 +77,8 @@
           <div class="dailyData" id="fridayData">DATA</div>
           <div class="dailyData" id="saturdayData">DATA</div>
           <div class="dailyData" id="sundayData">DATA</div>
-      </div>
-      <div class="flex-container">
+      </div> -->
+      <!-- <div class="flex-container">
           <div class="col">Hours</div>
           <div class="col">Monday</div>
           <div class="col">Tuesday</div>
@@ -94,12 +98,8 @@
           <button id="fridayView">VIEW THIS DAY</button>
           <button id="saturdayView">VIEW THIS DAY</button>
           <button id="sundayView">VIEW THIS DAY</button>
-      </div>
-    </div>
+      </div> -->
     
-  </main>
-
-    
-          <script src="assets/javascript/javascript.js"></script>
+    <script src="assets/javascript/javascript.js"></script>
 </body>
 </html>
