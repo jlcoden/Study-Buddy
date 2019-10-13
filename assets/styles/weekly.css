@@ -1,50 +1,22 @@
 body {
-    background: rgbA(30, 60, 90, 1.00);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    letter-spacing: .25em;
-    text-shadow: 1em;
-    min-height: 100%;
+    background: rgba(30, 60, 90, 1.00);
+    color: white;
     display: flex;
-    flex-direction: column;
 }
 
-.flex-container {
-    background: rgba(40, 80, 160, .9);
+.row {
+    width: 100%;
     display: flex;
-    position: relative;
-    min-height: 85vh;
-}
-
-.flex-container > div {
-    flex: 1;
-    height: 5em;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: rgba(10, 20, 40, .5);
+    justify-content: space-evenly;
+    height: 3em;
 }
 
 .col {
-    flex-direction: column;
-    height: 5em;
-    display: flex;
-    background: rgbA(255,255,255,0.25);
-    justify-content: flex-start;
+    background: rgba(40, 80, 160, .7);
+    justify-content: space-around;
+    flex-basis: 12.5%;
+    flex-grow: 1;
 }
-
-.col .header{
-    flex-direction: column;
-    background: white;
-    flex: 1;
-}
-
-.col .calendar-data {
-    flex-direction: column;
-    background: white;
-}
-
-.col .timeKeeper {
-    position: absolute;
-    flex: 1;
-    flex-direction: column;
-    background: rgba(34, 70, 140, .5);
-    flex-wrap: wrap;
-    flex-basis: 100%;
-}
-
