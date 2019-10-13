@@ -1,5 +1,6 @@
 body {
     display: flex;
+    flex-direction: row;
     background: darkblue;
     color: white;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -11,7 +12,11 @@ body {
 }
 
 .largecontainer {
+    position: relative;
     background: greenyellow;
+    padding-top: 20px;
+    padding-bottom: 20px;
+      
 }
 
 .row {
@@ -26,18 +31,40 @@ body {
 
 }
 
+button {
+    size: 6em;
+}
+
+button:hover {
+    background: cyan;
+}
+
 .buttonPreferred {
+    background: green;
     position: absolute;
     top: 25%;
     left: 4%;
+    height: 3em;
+    width: 7em;
 }
 
 .buttonCannot {
+    background: red;
     position: absolute;
     top: 35%;
     left: 4%;
+    height: 3em;
+    width: 7em;
 }
 
-th, td {
-    border: 10px, dotted, black;
+
+.dayheader {
+    background: red;
+    height: 5em;
+    text-align: center;
+}
+
+table {
+    border-top: 5px;
+    border-top-color: orangered;
 }
