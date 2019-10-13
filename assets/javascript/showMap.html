@@ -26,6 +26,9 @@
       runat="server"
     />
 
+    <div class="maps-link"></div>
+    <button onclick="showTile()">Confirm</button>
+
     <script>
       var lat;
       var lng;
@@ -50,6 +53,29 @@
         }
         google.maps.event.addDomListener(window, "load", initialize);
       });
+
+      document.onkeydown = function(event) {
+        if (event.keyCode === 13) {
+          //checks whether the pressed key is "Enter"
+          showTile(event);
+          console.log("enter pressed");
+        }
+      };
+
+      function showTile(e) {
+        console.log("ShowTile");
+        var img = $("<img />", {
+          id: "Myid",
+          src:
+            "https://maps.googleapis.com/maps/api/staticmap?center=" +
+            lat +
+            "," +
+            lng +
+            "&zoom=10&size=500x500&format=png32&maptype=roadmap&key=AIzaSyDwvmjC97a5rNqG-5V2HEp4tBh8NUQbkmA",
+          alt: "MyAlt"
+        });
+        $("maps-link").append(img);
+      }
     </script>
   </body>
 </html>
