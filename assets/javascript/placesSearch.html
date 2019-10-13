@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwvmjC97a5rNqG-5V2HEp4tBh8NUQbkmA&libraries=places"
+      type="text/javascript"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+  </head>
+  <body>
+    <input
+      id="searchTextField"
+      type="text"
+      size="50"
+      placeholder="Enter a location"
+      autocomplete="on"
+      runat="server"
+    />
+
+    <script>
+      var lat;
+      var lng;
+      document.addEventListener("DOMContentLoaded", function() {
+        function initialize() {
+          var input = document.getElementById("searchTextField");
+          var autocomplete = new google.maps.places.Autocomplete(input);
+          google.maps.event.addListener(
+            autocomplete,
+            "place_changed",
+            function() {
+              var place = autocomplete.getPlace();
+              // get lat
+              var lat = place.geometry.location.lat();
+              // get lng
+              var lng = place.geometry.location.lng();
+
+              console.log(lat);
+              console.log(lng);
+            }
+          );
+        }
+        google.maps.event.addDomListener(window, "load", initialize);
+      });
+    </script>
+  </body>
+</html>
