@@ -29,9 +29,12 @@
     <div class="maps-link"></div>
     <button onclick="showTile()">Confirm</button>
 
+    <div class="maps-image"></div>
+
     <script>
       var lat;
       var lng;
+
       document.addEventListener("DOMContentLoaded", function() {
         function initialize() {
           var input = document.getElementById("searchTextField");
@@ -42,9 +45,9 @@
             function() {
               var place = autocomplete.getPlace();
               // get lat
-              var lat = place.geometry.location.lat();
+              lat = place.geometry.location.lat();
               // get lng
-              var lng = place.geometry.location.lng();
+              lng = place.geometry.location.lng();
 
               console.log(lat);
               console.log(lng);
@@ -62,19 +65,53 @@
         }
       };
 
-      function showTile(e) {
+      function showTile(event) {
         console.log("ShowTile");
-        var img = $("<img />", {
+        console.log(window.lat);
+        console.log(window.lng);
+        var img = $("<img/>", {
           id: "Myid",
+          style: "cursor: pointer",
           src:
             "https://maps.googleapis.com/maps/api/staticmap?center=" +
-            lat +
+            window.lat +
             "," +
-            lng +
-            "&zoom=10&size=500x500&format=png32&maptype=roadmap&key=AIzaSyDwvmjC97a5rNqG-5V2HEp4tBh8NUQbkmA",
+            window.lng +
+            "&zoom=15&size=500x500&format=png32&maptype=roadmap&markers=size:mid%7Ccolor:red" +
+            window.lat +
+            "," +
+            window.lng +
+            "&key=AIzaSyDwvmjC97a5rNqG-5V2HEp4tBh8NUQbkmA",
           alt: "MyAlt"
         });
-        $("maps-link").append(img);
+        $(".maps-image").append(img);
+        $(".maps-image").on("click", function() {
+          mapsSelector();
+        });
+      }
+
+      function mapsSelector() {
+        if (
+          /* if we're on iOS, open in Apple Maps */
+          navigator.platform.indexOf("iPhone") != -1 ||
+          navigator.platform.indexOf("iPod") != -1 ||
+          navigator.platform.indexOf("iPad") != -1
+        )
+          window.open(
+            "maps://maps.google.com/maps/dir/?daddr=" +
+              window.lat +
+              "," +
+              window.lng +
+              "&amp;ll="
+          );
+        /* else use Google */ else
+          window.open(
+            "https://maps.google.com/maps/dir/?daddr=" +
+              window.lat +
+              "," +
+              window.lng +
+              "&amp;ll="
+          );
       }
     </script>
   </body>
