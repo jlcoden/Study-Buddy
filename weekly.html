@@ -4,9 +4,9 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- link to reset -->
-    <link rel="stylesheet" type="text/css" href="assets/styles/reset.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/styles/reset.css"> -->
     <!-- link to external custom stylesheet -->
-    <link rel="stylesheet" type="text/css" href="assets/styles/styles.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/styles/styles.css"> -->
     <link rel="stylesheet" type="text/css" href="assets/styles/weekly.css">
     <!-- link to materialize css library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -20,139 +20,96 @@
     <title>NERDHERD</title>
 </head>
 <body>
+  <div class="row">
+      <button>PREFERRED</button>
+      <button>CANNOT</button>
+  </div>
+    
+
   <div class="container">
     <table>
       <thead>
         <tr>
           <th></th>
-          <th>Sunday</th>
-          <th>Monday</th>
-          <th>Tuesday</th>
-          <th>Wednesday</th>
-          <th>Thursday</th>
-          <th>Friday</th>
-          <th>Saturday</th>
+          <th>Sunday <div class="dayNumber"></div></th>
+          <th>Monday <div class="dayNumber"></div></th>
+          <th>Tuesday <div class="dayNumber"></div></th>
+          <th>Wednesday <div class="dayNumber"></div></th>
+          <th>Thursday <div class="dayNumber"></div></th>
+          <th>Friday <div class="dayNumber"></div></th>
+          <th>Saturday <div class="dayNumber"></div></th>
         </tr>
       <thead>
       <tbody>
         <tr>
           <td>9</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>10</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td id="sundayNine"></td>
+          <td id="mondayNine"></td>
+          <td id="tuesdayNine"></td>
+          <td id="wednesdayNine"></td>
+          <td id="thursday Nine"></td>
+          <td id="fridayNine"></td>
+          <td id="saturdayNine"></td>
         </tr>
         <tr>
           <td>11</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td id="sundayEleven"></td>
+          <td id="mondayEleven"></td>
+          <td id="tuesdayEleven"></td>
+          <td id="wednesdayEleven"></td>
+          <td id="thursday Eleven"></td>
+          <td id="fridayEleven"></td>
+          <td id="saturdayEleven"></td>
         </tr>
         <tr>
-          <td>12</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr><tr>
           <td>1</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td id="sundayOnePM"></td>
+          <td id="mondayOnePM"></td>
+          <td id="tuesdayOnePM"></td>
+          <td id="wednesdayOnePM"></td>
+          <td id="thursday OnePM"></td>
+          <td id="fridayOnePM"></td>
+          <td id="saturdayOnePM"></td>
         </tr>
         <tr>
           <td>3</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td id="sundayThreePM"></td>
+          <td id="mondayThreePM"></td>
+          <td id="tuesdayThreePM"></td>
+          <td id="wednesdayThreePM"></td>
+          <td id="thursday ThreePM"></td>
+          <td id="fridayThreePM"></td>
+          <td id="saturdayThreePM"></td>
         </tr>
         <tr>
           <td>5</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td id="sundayFivePM"></td>
+          <td id="mondayFivePM"></td>
+          <td id="tuesdayFivePM"></td>
+          <td id="wednesdayFivePM"></td>
+          <td id="thursday FivePM"></td>
+          <td id="fridayFivePM"></td>
+          <td id="saturdayFivePM"></td>
         </tr>
         <tr>
           <td>7</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td id="sundaySevenPM"></td>
+          <td id="mondaySevenPM"></td>
+          <td id="tuesdaySevenPM"></td>
+          <td id="wednesdaySevenPM"></td>
+          <td id="thursday SevenPM"></td>
+          <td id="fridaySevenPM"></td>
+          <td id="saturdaySevenPM"></td>
         </tr>
         <tr>
-          <td>8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>9</td>
+          <td id="sundayNinePM"></td>
+          <td id="mondayNinePM"></td>
+          <td id="tuesdayNinePM"></td>
+          <td id="wednesdayNinePM"></td>
+          <td id="thursday NinePM"></td>
+          <td id="fridayNinePM"></td>
+          <td id="saturdayNinePM"></td>
         </tr>
       </tbody>  
     </table>

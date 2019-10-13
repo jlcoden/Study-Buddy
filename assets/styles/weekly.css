@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    background: darkblue;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container {
+    background: grey;
+    display: flex;
+}
+
+.row {
+    justify-content: center;
+    align-items: center;
+}
