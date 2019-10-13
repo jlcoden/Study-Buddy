@@ -9,7 +9,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="assets/styles/styles.css"> -->
     <link rel="stylesheet" type="text/css" href="assets/styles/weekly.css">
     <!-- link to materialize css library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- link to materialize JS library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- jquery cdn -->
@@ -20,9 +20,11 @@
     <title>NERDHERD</title>
 </head>
 <body>
-  <div class="row">
-      <button>PREFERRED</button>
-      <button>CANNOT</button>
+
+<div class="container largecontainer">
+  <div class="column">
+      <button class="buttonPreferred">PREFERRED</button>
+      <button class="buttonCannot">CANNOT</button>
   </div>
     
 
@@ -31,8 +33,8 @@
       <thead>
         <tr>
           <th></th>
-          <th>Sunday <div class="dayNumber"></div></th>
-          <th>Monday <div class="dayNumber"></div></th>
+          <th>Sunday <div class="col dayNumber"></div></th>
+          <th>Monday <div class="col dayNumber"></div></th>
           <th>Tuesday <div class="dayNumber"></div></th>
           <th>Wednesday <div class="dayNumber"></div></th>
           <th>Thursday <div class="dayNumber"></div></th>
@@ -114,6 +116,7 @@
       </tbody>  
     </table>
   </div>
+</div>
   
   <script src="assets/javascript/javascript.js"></script>
 </body>

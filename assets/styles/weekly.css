@@ -7,10 +7,35 @@ body {
 
 .container {
     background: grey;
-    display: flex;
+    flex: 1;
+}
+
+.largecontainer {
+    background: greenyellow;
 }
 
 .row {
-    justify-content: center;
+    flex: 1;
+    flex-direction: row;
+}
+
+.column {
+    flex: 1;
+    flex-direction: column;
     align-items: center;
+
+}
+
+.buttonPreferred {
+    position: relative;
+    top: 25%;
+}
+
+.buttonCannot {
+    position: relative;
+    top: 75%;
+}
+
+th, td {
+    border: 10px, dotted, black;
 }
