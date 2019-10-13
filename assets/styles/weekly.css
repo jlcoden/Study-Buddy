@@ -27,13 +27,15 @@ body {
 }
 
 .buttonPreferred {
-    position: relative;
+    position: absolute;
     top: 25%;
+    left: 4%;
 }
 
 .buttonCannot {
-    position: relative;
-    top: 75%;
+    position: absolute;
+    top: 35%;
+    left: 4%;
 }
 
 th, td {
