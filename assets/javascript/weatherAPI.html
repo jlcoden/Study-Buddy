@@ -3,6 +3,28 @@
   <head>
     <meta charset="utf-8" />
     <title>WeatherApp</title>
+
+    <style>
+      .weather {
+        color: white;
+        background-color: #424242;
+        width: 40%;
+        border: 2px solid black;
+        margin: 5px;
+      }
+
+      p {
+        margin: 5px;
+        padding: 0px;
+      }
+
+      #img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+      }
+    </style>
   </head>
 
   <body>
@@ -27,7 +49,8 @@
         "&lon=" +
         lon +
         "&cnt=14" +
-        APIKey;
+        APIKey +
+        "&units=imperial";
 
       // Here we run our AJAX call to the OpenWeatherMap API
       $.ajax({
@@ -45,32 +68,36 @@
 
       function processWeather(daysData) {
         for (var i = 0; i < daysData.length; i++) {
-          // $(".wind").text("Wind Speed: " + results.list[i].speed);
-          // $(".humidity").text("Humidity: " + results.list[i].humidity);
-          // $(".temp").text("Temperature (F) " + results.list[i].temp.day);
-          // // Log the data in the console as well
-
           var weatherDiv = $("<div class='weather'>");
 
           var temp = daysData[i].temp.day;
           var forecast = daysData[i].weather[0].description;
+          //    var humidity = days.Data[i].weather[0].list[i].humidity;
           var date = new Date(daysData[i].dt * 1000);
           var weatherIcon =
             '<img src="https://openweathermap.org/img/w/' +
             daysData[i].weather[0].icon +
             '.png"/>';
 
-          var pTemp = $("<p id ='pTemp'></div>").text("Temperature: " + temp);
+          var pTemp = $("<p id ='pTemp'></div>").text(
+            "Temperature (F): " + temp
+          );
           var pText = $("<p id ='pText'></div>").text("Forecast: " + forecast);
+          //  var pHumidity = $("<p id ='pHumidity'>").text(
+          //    "Humidity: " + humidity
+          //   );
           var pDate = $("<p id = 'pDate'></div>").text("Date: " + date);
-          var imgWeatherIcon = $("<div>" + weatherIcon + "</div>");
+          var imgWeatherIcon = $(
+            "<div = 'weatherIcon'>" + weatherIcon + "</div>"
+          );
 
           weatherDiv.append(pTemp);
           weatherDiv.append(pText);
+          // weatherDiv.append(pHumidity);
           weatherDiv.append(pDate);
           weatherDiv.append(imgWeatherIcon);
 
-          $("#forecast-view").prepend(weatherDiv);
+          $("#forecast-view").append(weatherDiv);
 
           weatherDays.push({
             temp: Math.round(daysData[i].temp.day),
