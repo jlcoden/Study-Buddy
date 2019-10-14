@@ -1,0 +1,39 @@
+/* for snapping example thumbs up */
+#grid-snap {
+    text-align: center;
+    width: 5%;
+    background-color: #29e;
+    color: #fff;
+    font-size: 1.2em;
+    border-radius: 4px;
+    padding: 0.1%;
+    border: 0;
+    margin: 10%;
+    touch-action: none;
+    }
+/* for snapping example thumbs down */
+    #grid-snap1 {
+        text-align: center;
+        width: 5%;
+        background-color: #29e;
+        color: #fff;
+        font-size: 1.2em;
+        border-radius: 4px;
+        padding: 0.1%;
+        border: 0;
+        margin: 20%;
+        touch-action: none;
+    }
+
+    /* original css example from interactjs.io
+    #grid-snap {
+        width: 40%;
+        background-color: #29e;
+        color: #fff;
+        font-size: 1.2em;
+        border-radius: 4px;
+        padding: 2%;
+        margin: 5%;
+        touch-action: none;
+      }
+      */
