@@ -10,14 +10,8 @@ body {
     background: grey;
     flex: 1;
     padding-top: 25px;
-}
-
-.largecontainer {
-    position: relative;
-    background: greenyellow;
-    padding-top: 20px;
-    padding-bottom: 20px;
-      
+    overflow-y: scroll;
+    height: 100vh;
 }
 
 .row {
@@ -33,7 +27,7 @@ body {
 }
 
 button {
-    size: 6em;
+    size: 3em;
 }
 
 button:hover {
@@ -62,4 +56,12 @@ button:hover {
 table {
     border-top: 5px;
     border-top-color: orangered;
+}
+
+.switchButton {
+    flex: 1;
+    flex-basis: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
