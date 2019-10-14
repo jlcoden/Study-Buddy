@@ -41,18 +41,12 @@ button:hover {
 
 .buttonPreferred {
     background: green;
-    position: absolute;
-    top: 25%;
-    left: 4%;
     height: 3em;
     width: 7em;
 }
 
 .buttonCannot {
     background: red;
-    position: absolute;
-    top: 35%;
-    left: 4%;
     height: 3em;
     width: 7em;
 }

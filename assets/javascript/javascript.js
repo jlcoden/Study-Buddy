@@ -24,8 +24,6 @@ function datePull() {
     console.log(dateToday);
     let dayToday = newDate.getDay();
     console.log(dayToday);
-    let dayNum = parseInt(dayToday);
-    console.log(dayNum);
     let dayName = daysOfWeek.indexOf(dayToday, 0);
     console.log(dayName);
 }
