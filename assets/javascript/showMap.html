@@ -7,7 +7,7 @@
     <title>Document</title>
 
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwvmjC97a5rNqG-5V2HEp4tBh8NUQbkmA&libraries=places"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmhlYrcIaalp0JkPrA2_XqDOX-wL9WXdk&libraries=places"
       type="text/javascript"
     ></script>
 
@@ -77,13 +77,14 @@
             window.lat +
             "," +
             window.lng +
-            "&zoom=15&size=500x500&format=png32&maptype=roadmap&markers=size:mid%7Ccolor:red" +
+            "&zoom=15&size=500x500&format=png32&maptype=roadmap&markers=size:mid|color:red|label:X|" +
             window.lat +
             "," +
             window.lng +
-            "&key=AIzaSyDwvmjC97a5rNqG-5V2HEp4tBh8NUQbkmA",
+            "&key=AIzaSyCmhlYrcIaalp0JkPrA2_XqDOX-wL9WXdk",
           alt: "MyAlt"
         });
+
         $(".maps-image").append(img);
         $(".maps-image").on("click", function() {
           mapsSelector();
