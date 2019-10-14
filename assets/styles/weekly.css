@@ -9,6 +9,7 @@ body {
 .container {
     background: grey;
     flex: 1;
+    padding-top: 25px;
 }
 
 .largecontainer {
