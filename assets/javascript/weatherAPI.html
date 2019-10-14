@@ -35,6 +35,9 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
     ></script>
 
+    <!-- Link to Moment.js should go here -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
     <script type="text/javascript">
       // This is our API key
       var APIKey = "&appid=8c24bcb54a1a145708ca7717f2851eb4";
@@ -74,6 +77,8 @@
           var forecast = daysData[i].weather[0].description;
           //    var humidity = days.Data[i].weather[0].list[i].humidity;
           var date = new Date(daysData[i].dt * 1000);
+          var shortDate = moment(date).format("MM/DD/YYYY");
+          console.log(shortDate);
           var weatherIcon =
             '<img src="https://openweathermap.org/img/w/' +
             daysData[i].weather[0].icon +
@@ -87,14 +92,19 @@
           //    "Humidity: " + humidity
           //   );
           var pDate = $("<p id = 'pDate'></div>").text("Date: " + date);
+
+          var pShortDate = $("<p id = 'pShortDate'></div>").text(
+            "Date: " + shortDate
+          );
           var imgWeatherIcon = $(
             "<div = 'weatherIcon'>" + weatherIcon + "</div>"
           );
 
+          weatherDiv.append(pShortDate);
           weatherDiv.append(pTemp);
           weatherDiv.append(pText);
           // weatherDiv.append(pHumidity);
-          weatherDiv.append(pDate);
+          //  weatherDiv.append(pDate);
           weatherDiv.append(imgWeatherIcon);
 
           $("#forecast-view").append(weatherDiv);
