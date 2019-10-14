@@ -55,14 +55,20 @@
           var temp = daysData[i].temp.day;
           var forecast = daysData[i].weather[0].description;
           var date = new Date(daysData[i].dt * 1000);
+          var weatherIcon =
+            '<img src="https://openweathermap.org/img/w/' +
+            daysData[i].weather[0].icon +
+            '.png"/>';
 
           var pTemp = $("<p id ='pTemp'></div>").text("Temperature: " + temp);
           var pText = $("<p id ='pText'></div>").text("Forecast: " + forecast);
           var pDate = $("<p id = 'pDate'></div>").text("Date: " + date);
+          var imgWeatherIcon = $("<div>" + weatherIcon + "</div>");
 
           weatherDiv.append(pTemp);
           weatherDiv.append(pText);
           weatherDiv.append(pDate);
+          weatherDiv.append(imgWeatherIcon);
 
           $("#forecast-view").prepend(weatherDiv);
 
