@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="assets/styles/reset.css">
     <!-- link to external custom stylesheet -->
     <link rel="stylesheet" type="text/css" href="assets/styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/calendar.css">
     <!-- link to materialize JS library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- link to bootstrap css/js -->
@@ -18,6 +19,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
         integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
         crossorigin="anonymous"></script>
+
+        <link href='fullcalendar/core/main.css' rel='stylesheet' />
+    <link href='fullcalendar/daygrid/main.css' rel='stylesheet' />
+
+    <script src='fullcalendar/core/main.js'></script>
+    <script src='fullcalendar/daygrid/main.js'></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -25,161 +32,7 @@
 </head>
 
 <body>
-    <header>
-        <!-- START NAVBAR -->
-        <div class="container-fluid">
-            <nav>
-                <div class="nav-wrapper">
-                    <a href="#" class="brand-logo">STUDY BUDDY</a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="">Calendar</a></li>
-                        <li><a href="">Sessions</a></li>
-                        <li><a href="">My Group</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-        <!-- END NAVBAR -->
-    </header>
-
-    <main>
-        <div class="row">
-            <div class="col-10">
-                <!-- start of calendar -->
-                <div class="container col-sm-4 col-md-7 col-lg-4 mt-5">
-                    <div class="card">
-                        <h3 class="card-header" id="monthAndYear"></h3>
-                        <table class="table table-bordered table-responsive-sm" id="calendar">
-                            <thead>
-                                <tr>
-                                    <th>Sun</th>
-                                    <th>Mon</th>
-                                    <th>Tue</th>
-                                    <th>Wed</th>
-                                    <th>Thu</th>
-                                    <th>Fri</th>
-                                    <th>Sat</th>
-                                </tr>
-                            </thead>
-
-                            <tbody id="calendar-body">
-
-                            </tbody>
-                        </table>
-
-                        <div class="form-inline">
-
-                            <button class="btn btn-outline-primary col-sm-6" id="previous"
-                                onclick="previous()">Previous</button>
-
-                            <button class="btn btn-outline-primary col-sm-6" id="next" onclick="next()">Next</button>
-                        </div>
-                        <br />
-                        <form class="form-inline">
-                            <label class="lead mr-2 ml-2" for="month">Jump To: </label>
-                            <select class="form-control col-sm-4" name="month" id="month" onchange="jump()">
-                                <option value=0>Jan</option>
-                                <option value=1>Feb</option>
-                                <option value=2>Mar</option>
-                                <option value=3>Apr</option>
-                                <option value=4>May</option>
-                                <option value=5>Jun</option>
-                                <option value=6>Jul</option>
-                                <option value=7>Aug</option>
-                                <option value=8>Sep</option>
-                                <option value=9>Oct</option>
-                                <option value=10>Nov</option>
-                                <option value=11>Dec</option>
-                            </select>
-
-
-                            <label for="year"></label><select class="form-control col-sm-4" name="year" id="year"
-                                onchange="jump()">
-                                <option value=1990>1990</option>
-                                <option value=1991>1991</option>
-                                <option value=1992>1992</option>
-                                <option value=1993>1993</option>
-                                <option value=1994>1994</option>
-                                <option value=1995>1995</option>
-                                <option value=1996>1996</option>
-                                <option value=1997>1997</option>
-                                <option value=1998>1998</option>
-                                <option value=1999>1999</option>
-                                <option value=2000>2000</option>
-                                <option value=2001>2001</option>
-                                <option value=2002>2002</option>
-                                <option value=2003>2003</option>
-                                <option value=2004>2004</option>
-                                <option value=2005>2005</option>
-                                <option value=2006>2006</option>
-                                <option value=2007>2007</option>
-                                <option value=2008>2008</option>
-                                <option value=2009>2009</option>
-                                <option value=2010>2010</option>
-                                <option value=2011>2011</option>
-                                <option value=2012>2012</option>
-                                <option value=2013>2013</option>
-                                <option value=2014>2014</option>
-                                <option value=2015>2015</option>
-                                <option value=2016>2016</option>
-                                <option value=2017>2017</option>
-                                <option value=2018>2018</option>
-                                <option value=2019>2019</option>
-                                <option value=2020>2020</option>
-                                <option value=2021>2021</option>
-                                <option value=2022>2022</option>
-                                <option value=2023>2023</option>
-                                <option value=2024>2024</option>
-                                <option value=2025>2025</option>
-                                <option value=2026>2026</option>
-                                <option value=2027>2027</option>
-                                <option value=2028>2028</option>
-                                <option value=2029>2029</option>
-                                <option value=2030>2030</option>
-                            </select></form>
-                    </div>
-                    <!--  end of calendar -->
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="card" style="width:200px">
-                    <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-                    <div class="card-image-overlay">
-                        <h4 class="card-title">MEETING @ BAUHAUS</h4>
-                        <p class="card-text">430-630</p>
-                    </div>
-                </div>
-            </div>
-    </main>
-    <!-- START FOOTER -->
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer
-                        content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-        </div>
-    </footer>
-    <!-- END FOOTER -->
-
+    
 
     <script src="assets/javascript/calendar.js"></script>
 </body>
