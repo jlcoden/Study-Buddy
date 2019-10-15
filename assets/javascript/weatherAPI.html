@@ -2,9 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>WeatherApp</title>
+    <title>Weather App</title>
 
+    <!-- CSS Styles-->
     <style>
+      /* styles for weather div, which will be populated for each day*/
       .weather {
         color: white;
         background-color: #424242;
@@ -12,12 +14,13 @@
         border: 2px solid black;
         margin: 5px;
       }
-
+      /* styles for paragraph tags*/
       p {
         margin: 5px;
         padding: 0px;
       }
 
+      /* styles for icon image*/
       #img {
         display: block;
         margin-left: auto;
@@ -28,24 +31,30 @@
   </head>
 
   <body>
-    <!-- Retrieved data will be dumped here -->
+    <!-- Retrieved data will be dumped into the forecast-view div -->
     <div id="forecast-view"></div>
+
+    <!--Link to jquery -->
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
     ></script>
 
-    <!-- Link to Moment.js should go here -->
+    <!-- Link to Moment.js -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
+    <!-- Javascript -->
     <script type="text/javascript">
-      // This is our API key
+      //API key
       var APIKey = "&appid=8c24bcb54a1a145708ca7717f2851eb4";
+      //Lat defined
       var lat = 47;
+      //lon defined
       var lon = 122;
+      //array for holding each days forcast
       var weatherDays = [];
-      //   https://api.openweathermap.org/data/2.5/forecast?lat=35&lon=139&appid=8c24bcb54a1a145708ca7717f2851eb4
-      // Here we are building the URL we need to query the database
+
+      //query URL
       var queryURL =
         "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" +
         lat +
@@ -53,9 +62,10 @@
         lon +
         "&cnt=14" +
         APIKey +
+        //units set to imperial for Fahrenheit
         "&units=imperial";
 
-      // Here we run our AJAX call to the OpenWeatherMap API
+      // AJAX call to the OpenWeatherMap API
       $.ajax({
         url: queryURL,
         method: "GET"
@@ -69,60 +79,71 @@
         console.log(weatherDays);
       });
 
+      //function to process weather
       function processWeather(daysData) {
+        //for length of days of data, icrement and create divs to hold the data
         for (var i = 0; i < daysData.length; i++) {
+          //weather div for holding the days forcast
           var weatherDiv = $("<div class='weather'>");
 
+          //extrating temperature from JSON
           var temp = daysData[i].temp.day;
+          //extrating forecast from JSON
           var forecast = daysData[i].weather[0].description;
-          //    var humidity = days.Data[i].weather[0].list[i].humidity;
+          //using moment to grab timestamp
           var date = new Date(daysData[i].dt * 1000);
+          //using moment to get a date format that can be used in the calendar
           var shortDate = moment(date).format("MM/DD/YYYY");
+          //using moment to get a month format that can be used in the calendar
           var month = moment(date).format("MMMM");
+          //using moment to get a Day format that can be used in the calendar
           var day = moment(date).format("DD");
           console.log(month);
           console.log(day);
           console.log(shortDate);
+          console.log(day);
+          //var for pulling weather emoji
           var weatherIcon =
             '<img src="https://openweathermap.org/img/w/' +
             daysData[i].weather[0].icon +
             '.png"/>';
 
+          //paragraph for placing the temperature
           var pTemp = $("<p id ='pTemp'></div>").text(
             "Temperature (F): " + temp
           );
+          //paragraph for placing the forecast text
           var pText = $("<p id ='pText'></div>").text("Forecast: " + forecast);
-          //  var pHumidity = $("<p id ='pHumidity'>").text(
-          //    "Humidity: " + humidity
-          //   );
+
+          //paragraph for placing the date text
           var pDate = $("<p id = 'pDate'></div>").text("Date: " + date);
 
+          //paragraph for placing the short date
           var pShortDate = $("<p id = 'pShortDate'></div>").text(
             "Date: " + shortDate
           );
+          //div for holding the weather icon
           var imgWeatherIcon = $(
             "<div = 'weatherIcon'>" + weatherIcon + "</div>"
           );
 
+          //append all dynamically created pargraph and div tags to HTML
           weatherDiv.append(pShortDate);
           weatherDiv.append(pTemp);
           weatherDiv.append(pText);
-          // weatherDiv.append(pHumidity);
           //  weatherDiv.append(pDate);
           weatherDiv.append(imgWeatherIcon);
 
+          //append the weatherDiv container to the HTML forecast-view
           $("#forecast-view").append(weatherDiv);
 
+          //push data
           weatherDays.push({
             temp: Math.round(daysData[i].temp.day),
             forecast: daysData[i].weather[0].description,
             date: new Date(daysData[i].dt * 1000)
           });
         }
-
-        var day1 = weatherDays[0];
-        var day2 = weatherDays[1];
-        var dayAfterTomorrow = weatherDays[2];
       }
     </script>
   </body>
