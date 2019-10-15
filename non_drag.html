@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="assets/styles/reset.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/styles/non_drag.css">
+    <title>Scheduler</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Non-Drag Scheduler for very very MVP?</h1>
+        <table class="table table-bordered" id="main_table">
+            <thead>
+                <tr>
+                    <th class="col_shape" id="timeH" scope="col"><span class="col-sm-12">Time</span></th>
+                    <th class="col_shape" scope="col"><span class="col-sm-12">SUN</span></th>
+                    <th class="col_shape" scope="col"><span class="col-sm-12">MON</span></th>
+                    <th class="col_shape" scope="col"><span class="col-sm-12">TUE</span></th>
+                    <th class="col_shape" scope="col"><span class="col-sm-12">WED</span></th>
+                    <th class="col_shape" scope="col"><span class="col-sm-12">THU</span></th>
+                    <th class="col_shape" scope="col"><span class="col-sm-12">FRI</span></th>
+                    <th class="col_shape" scope="col"><span class="col-sm-12">SAT</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>08:00am - 08:30am</td>
+                    <td class="cell" id="cell1"></td>
+                    <td class="cell" id="cell2"></td>
+                    <td class="cell" id="cell3"></td>
+                    <td class="cell" id="cell4"></td>
+                    <td class="cell" id="cell5"></td>
+                    <td class="cell" id="cell6"></td>
+                    <td class="cell" id="cell7"></td>
+                </tr>
+                <tr>
+                    <td>08:30am - 09:00am</td>
+                    <td class="cell" id="cell8"></td>
+                    <td class="cell" id="cell9"></td>
+                    <td class="cell" id="cell10"></td>
+                    <td class="cell" id="cell11"></td>
+                    <td class="cell" id="cell12"></td>
+                    <td class="cell" id="cell13"></td>
+                    <td class="cell" id="cell14"></td>
+                </tr>
+                <tr>
+                    <td>09:00am - 09:30am</td>
+                    <td class="cell" id="cell15"></td>
+                    <td class="cell" id="cell16"></td>
+                    <td class="cell" id="cell17"></td>
+                    <td class="cell" id="cell18"></td>
+                    <td class="cell" id="cell19"></td>
+                    <td class="cell" id="cell20"></td>
+                    <td class="cell" id="cell21"></td>
+                </tr>
+                <tr>
+                    <td>09:30am - 10:00am</td>
+                    <td class="cell" id="cell22"></td>
+                    <td class="cell" id="cell23"></td>
+                    <td class="cell" id="cell24"></td>
+                    <td class="cell" id="cell25"></td>
+                    <td class="cell" id="cell26"></td>
+                    <td class="cell" id="cell27"></td>
+                    <td class="cell" id="cell28"></td>
+                </tr>
+                <tr>
+                    <td>10:00am - 10:30am</td>
+                    <td class="cell" id="cell29"></td>
+                    <td class="cell" id="cell30"></td>
+                    <td class="cell" id="cell31"></td>
+                    <td class="cell" id="cell32"></td>
+                    <td class="cell" id="cell33"></td>
+                    <td class="cell" id="cell34"></td>
+                    <td class="cell" id="cell35"></td>
+                </tr>
+                <tr>
+                    <td>10:30am - 11:00am</td>
+                    <td class="cell" id="cell36"></td>
+                    <td class="cell" id="cell37"></td>
+                    <td class="cell" id="cell38"></td>
+                    <td class="cell" id="cell39"></td>
+                    <td class="cell" id="cell40"></td>
+                    <td class="cell" id="cell41"></td>
+                    <td class="cell" id="cell42"></td>
+                </tr>
+                <tr>
+                    <td>11:00am - 11:30am</td>
+                    <td class="cell" id="cell43"></td>
+                    <td class="cell" id="cell44"></td>
+                    <td class="cell" id="cell45"></td>
+                    <td class="cell" id="cell46"></td>
+                    <td class="cell" id="cell47"></td>
+                    <td class="cell" id="cell48"></td>
+                    <td class="cell" id="cell49"></td>
+                </tr>
+                <tr>
+                    <td>11:30am - 12:00pm</td>
+                    <td class="cell" id="cell50"></td>
+                    <td class="cell" id="cell51"></td>
+                    <td class="cell" id="cell52"></td>
+                    <td class="cell" id="cell53"></td>
+                    <td class="cell" id="cell54"></td>
+                    <td class="cell" id="cell55"></td>
+                    <td class="cell" id="cell56"></td>
+                </tr>
+                <tr>
+                    <td>12:00pm - 12:30pm</td>
+                    <td class="cell" id="cell57"></td>
+                    <td class="cell" id="cell58"></td>
+                    <td class="cell" id="cell59"></td>
+                    <td class="cell" id="cell60"></td>
+                    <td class="cell" id="cell61"></td>
+                    <td class="cell" id="cell62"></td>
+                    <td class="cell" id="cell63"></td>
+                </tr>
+                <tr>
+                    <td>12:30pm - 01:00pm</td>
+                    <td class="cell" id="cell64"></td>
+                    <td class="cell" id="cell65"></td>
+                    <td class="cell" id="cell66"></td>
+                    <td class="cell" id="cell67"></td>
+                    <td class="cell" id="cell68"></td>
+                    <td class="cell" id="cell69"></td>
+                    <td class="cell" id="cell70"></td>
+                </tr>
+                <tr>
+                    <td>01:00pm - 01:30pm</td>
+                    <td class="cell" id="cell71"></td>
+                    <td class="cell" id="cell72"></td>
+                    <td class="cell" id="cell73"></td>
+                    <td class="cell" id="cell74"></td>
+                    <td class="cell" id="cell75"></td>
+                    <td class="cell" id="cell76"></td>
+                    <td class="cell" id="cell77"></td>
+                </tr>
+                <tr>
+                    <td>01:30pm - 02:00pm</td>
+                    <td class="cell" id="cell78"></td>
+                    <td class="cell" id="cell79"></td>
+                    <td class="cell" id="cell80"></td>
+                    <td class="cell" id="cell81"></td>
+                    <td class="cell" id="cell82"></td>
+                    <td class="cell" id="cell83"></td>
+                    <td class="cell" id="cell84"></td>
+                </tr>
+                <tr>
+                    <td>02:00pm - 02:30pm</td>
+                    <td class="cell" id="cell85"></td>
+                    <td class="cell" id="cell86"></td>
+                    <td class="cell" id="cell87"></td>
+                    <td class="cell" id="cell88"></td>
+                    <td class="cell" id="cell89"></td>
+                    <td class="cell" id="cell90"></td>
+                    <td class="cell" id="cell91"></td>
+                </tr>
+                <tr>
+                    <td>02:30pm - 03:00pm</td>
+                    <td class="cell" id="cell92"></td>
+                    <td class="cell" id="cell93"></td>
+                    <td class="cell" id="cell94"></td>
+                    <td class="cell" id="cell95"></td>
+                    <td class="cell" id="cell96"></td>
+                    <td class="cell" id="cell97"></td>
+                    <td class="cell" id="cell98"></td>
+                </tr>
+                <tr>
+                    <td>03:00pm - 03:30pm</td>
+                    <td class="cell" id="cell99"></td>
+                    <td class="cell" id="cell100"></td>
+                    <td class="cell" id="cell101"></td>
+                    <td class="cell" id="cell102"></td>
+                    <td class="cell" id="cell103"></td>
+                    <td class="cell" id="cell104"></td>
+                    <td class="cell" id="cell105"></td>
+                </tr>
+                <tr>
+                    <td>03:30pm - 04:00pm</td>
+                    <td class="cell" id="cell106"></td>
+                    <td class="cell" id="cell107"></td>
+                    <td class="cell" id="cell108"></td>
+                    <td class="cell" id="cell109"></td>
+                    <td class="cell" id="cell110"></td>
+                    <td class="cell" id="cell111"></td>
+                    <td class="cell" id="cell112"></td>
+                </tr>
+                <tr>
+                    <td>04:00pm - 04:30pm</td>
+                    <td class="cell" id="cell113"></td>
+                    <td class="cell" id="cell114"></td>
+                    <td class="cell" id="cell115"></td>
+                    <td class="cell" id="cell116"></td>
+                    <td class="cell" id="cell117"></td>
+                    <td class="cell" id="cell118"></td>
+                    <td class="cell" id="cell119"></td>
+                </tr>
+                <tr>
+                    <td>04:30pm - 05:00pm</td>
+                    <td class="cell" id="cell120"></td>
+                    <td class="cell" id="cell121"></td>
+                    <td class="cell" id="cell122"></td>
+                    <td class="cell" id="cell123"></td>
+                    <td class="cell" id="cell124"></td>
+                    <td class="cell" id="cell125"></td>
+                    <td class="cell" id="cell126"></td>
+                </tr>
+                <tr>
+                    <td>05:00pm - 05:30pm</td>
+                    <td class="cell" id="cell127"></td>
+                    <td class="cell" id="cell128"></td>
+                    <td class="cell" id="cell129"></td>
+                    <td class="cell" id="cell130"></td>
+                    <td class="cell" id="cell131"></td>
+                    <td class="cell" id="cell132"></td>
+                    <td class="cell" id="cell133"></td>
+                </tr>
+                <tr>
+                    <td>05:30pm - 06:00pm</td>
+                    <td class="cell" id="cell134"></td>
+                    <td class="cell" id="cell135"></td>
+                    <td class="cell" id="cell136"></td>
+                    <td class="cell" id="cell137"></td>
+                    <td class="cell" id="cell138"></td>
+                    <td class="cell" id="cell139"></td>
+                    <td class="cell" id="cell140"></td>
+                </tr>
+                <tr>
+                    <td>06:00pm - 06:30pm</td>
+                    <td class="cell" id="cell141"></td>
+                    <td class="cell" id="cell142"></td>
+                    <td class="cell" id="cell143"></td>
+                    <td class="cell" id="cell144"></td>
+                    <td class="cell" id="cell145"></td>
+                    <td class="cell" id="cell146"></td>
+                    <td class="cell" id="cell147"></td>
+                </tr>
+                <tr>
+                    <td>06:30pm - 07:00pm</td>
+                    <td class="cell" id="cell148"></td>
+                    <td class="cell" id="cell149"></td>
+                    <td class="cell" id="cell150"></td>
+                    <td class="cell" id="cell151"></td>
+                    <td class="cell" id="cell152"></td>
+                    <td class="cell" id="cell153"></td>
+                    <td class="cell" id="cell154"></td>
+                </tr>
+                <tr>
+                    <td>07:00pm - 07:30pm</td>
+                    <td class="cell" id="cell155"></td>
+                    <td class="cell" id="cell156"></td>
+                    <td class="cell" id="cell157"></td>
+                    <td class="cell" id="cell158"></td>
+                    <td class="cell" id="cell159"></td>
+                    <td class="cell" id="cell160"></td>
+                    <td class="cell" id="cell161"></td>
+                </tr>
+                <tr>
+                    <td>07:30pm - 08:00pm</td>
+                    <td class="cell" id="cell162"></td>
+                    <td class="cell" id="cell163"></td>
+                    <td class="cell" id="cell164"></td>
+                    <td class="cell" id="cell165"></td>
+                    <td class="cell" id="cell166"></td>
+                    <td class="cell" id="cell167"></td>
+                    <td class="cell" id="cell168"></td>
+                </tr>
+                <tr>
+                    <td>08:00pm - 08:30pm</td>
+                    <td class="cell" id="cell169"></td>
+                    <td class="cell" id="cell170"></td>
+                    <td class="cell" id="cell171"></td>
+                    <td class="cell" id="cell172"></td>
+                    <td class="cell" id="cell173"></td>
+                    <td class="cell" id="cell174"></td>
+                    <td class="cell" id="cell175"></td>
+                </tr>
+                <tr>
+                    <td>08:30pm - 09:00pm</td>
+                    <td class="cell" id="cell176"></td>
+                    <td class="cell" id="cell177"></td>
+                    <td class="cell" id="cell178"></td>
+                    <td class="cell" id="cell179"></td>
+                    <td class="cell" id="cell180"></td>
+                    <td class="cell" id="cell181"></td>
+                    <td class="cell" id="cell182"></td>
+                </tr>
+                <tr>
+                    <td>09:00pm - 09:30pm</td>
+                    <td class="cell" id="cell183"></td>
+                    <td class="cell" id="cell184"></td>
+                    <td class="cell" id="cell185"></td>
+                    <td class="cell" id="cell186"></td>
+                    <td class="cell" id="cell187"></td>
+                    <td class="cell" id="cell188"></td>
+                    <td class="cell" id="cell189"></td>
+                </tr>
+                <tr>
+                    <td>09:30pm - 10:00pm</td>
+                    <td class="cell" id="cell190"></td>
+                    <td class="cell" id="cell191"></td>
+                    <td class="cell" id="cell192"></td>
+                    <td class="cell" id="cell193"></td>
+                    <td class="cell" id="cell194"></td>
+                    <td class="cell" id="cell195"></td>
+                    <td class="cell" id="cell196"></td>
+                </tr>
+                <tr>
+                    <td>10:00pm - 10:30pm</td>
+                    <td class="cell" id="cell197"></td>
+                    <td class="cell" id="cell198"></td>
+                    <td class="cell" id="cell199"></td>
+                    <td class="cell" id="cell200"></td>
+                    <td class="cell" id="cell201"></td>
+                    <td class="cell" id="cell202"></td>
+                    <td class="cell" id="cell203"></td>
+                </tr>
+                <tr>
+                    <td>10:30pm - 11:00pm</td>
+                    <td class="cell" id="cell204"></td>
+                    <td class="cell" id="cell205"></td>
+                    <td class="cell" id="cell206"></td>
+                    <td class="cell" id="cell207"></td>
+                    <td class="cell" id="cell208"></td>
+                    <td class="cell" id="cell209"></td>
+                    <td class="cell" id="cell210"></td>
+                </tr>
+                <tr>
+                    <td>11:00pm - 11:30pm</td>
+                    <td class="cell" id="cell211"></td>
+                    <td class="cell" id="cell212"></td>
+                    <td class="cell" id="cell213"></td>
+                    <td class="cell" id="cell214"></td>
+                    <td class="cell" id="cell215"></td>
+                    <td class="cell" id="cell216"></td>
+                    <td class="cell" id="cell217"></td>
+                </tr>
+                <tr>
+                    <td>11:30pm - 12:00am</td>
+                    <td class="cell" id="cell218"></td>
+                    <td class="cell" id="cell219"></td>
+                    <td class="cell" id="cell220"></td>
+                    <td class="cell" id="cell221"></td>
+                    <td class="cell" id="cell222"></td>
+                    <td class="cell" id="cell223"></td>
+                    <td class="cell" id="cell224"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="card" id="card1">
+            <div class="card-header">
+                Select your time.
+            </div>
+            <div class="card-body">
+                <div class="d-flex">
+                    <div class="dropdown mr-1">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+                            Day
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                            <a id="day1" class="dropdown-item" href="#">Sunday</a>
+                            <a id="day2" class="dropdown-item" href="#">Monday</a>
+                            <a id="day3" class="dropdown-item" href="#">Tuesday</a>
+                            <a id="day4" class="dropdown-item" href="#">Wednesday</a>
+                            <a id="day5" class="dropdown-item" href="#">Thursday</a>
+                            <a id="day6" class="dropdown-item" href="#">Friday</a>
+                            <a id="day7" class="dropdown-item" href="#">Saturday</a>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary">Time</button>
+                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+                            id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            data-reference="parent">
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+                            <a id="time1" class="dropdown-item" href="#">08:00am - 08:30am</a>
+                            <a id="time2" class="dropdown-item" href="#">08:30am - 09:00am</a>
+                            <a id="time3" class="dropdown-item" href="#">09:00am - 09:30am</a>
+                            <a id="time4" class="dropdown-item" href="#">09:30am - 10:00am</a>
+                            <a id="time5" class="dropdown-item" href="#">10:00am - 10:30am</a>
+                            <a id="time6" class="dropdown-item" href="#">10:30am - 11:00am</a>
+                            <a id="time7" class="dropdown-item" href="#">11:00am - 11:30am</a>
+                            <a id="time8" class="dropdown-item" href="#">11:30am - 12:00pm</a>
+                            <a id="time9" class="dropdown-item" href="#">12:00pm - 12:30pm</a>
+                            <a id="time10" class="dropdown-item" href="#">12:30pm - 01:00pm</a>
+                            <a id="time11" class="dropdown-item" href="#">01:00pm - 01:30pm</a>
+                            <a id="time12" class="dropdown-item" href="#">01:30pm - 02:00pm</a>
+                            <a id="time13" class="dropdown-item" href="#">02:00pm - 02:30pm</a>
+                            <a id="time14" class="dropdown-item" href="#">02:30pm - 03:00pm</a>
+                            <a id="time15" class="dropdown-item" href="#">03:00pm - 03:30pm</a>
+                            <a id="time16" class="dropdown-item" href="#">03:30pm - 04:00pm</a>
+                            <a id="time17" class="dropdown-item" href="#">04:00pm - 04:30pm</a>
+                            <a id="time18" class="dropdown-item" href="#">04:30pm - 05:00pm</a>
+                            <a id="time19" class="dropdown-item" href="#">05:00pm - 05:30pm</a>
+                            <a id="time20" class="dropdown-item" href="#">05:30pm - 06:00pm</a>
+                            <a id="time21" class="dropdown-item" href="#">06:00pm - 06:30pm</a>
+                            <a id="time22" class="dropdown-item" href="#">06:30pm - 07:00pm</a>
+                            <a id="time23" class="dropdown-item" href="#">07:00pm - 07:30pm</a>
+                            <a id="time24" class="dropdown-item" href="#">07:30pm - 08:00pm</a>
+                            <a id="time25" class="dropdown-item" href="#">08:00pm - 08:30pm</a>
+                            <a id="time26" class="dropdown-item" href="#">08:30pm - 09:00pm</a>
+                            <a id="time27" class="dropdown-item" href="#">09:00pm - 09:30pm</a>
+                            <a id="time28" class="dropdown-item" href="#">09:30pm - 10:00pm</a>
+                            <a id="time29" class="dropdown-item" href="#">10:00pm - 10:30pm</a>
+                            <a id="time30" class="dropdown-item" href="#">10:30pm - 11:00pm</a>
+                            <a id="time31" class="dropdown-item" href="#">11:00pm - 11:30pm</a>
+                            <a id="time32" class="dropdown-item" href="#">11:30pm - 12:00am</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>Day: <span id="day_display"></span></p>
+            <p>Time: <span id="time_display"></span></p>
+
+            <a id="submitBtn" href="#" class="btn btn-success submit_button">Preferred</a>
+            <a id="submitBtn2" href="#" class="btn btn-danger submit_button">&nbsp;&nbsp;Cannot&nbsp;&nbsp;</a>
+        </div>
+        
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="assets/javascript/non_drag.js"></script>
+</body>
+
+</html>

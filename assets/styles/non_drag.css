@@ -1,0 +1,23 @@
+#container {
+    width: 80%;
+    margin-left: 10px;
+}
+.col_shape {
+    margin: 0;
+    text-align: center;
+}
+td {
+    font-size: 10px;
+    line-height: 0%;
+}
+#timeH {
+    min-width: 130px;
+    text-align: center;
+}
+#tmain_able, #card1, #card2 {
+    display: inline-block;
+}
+.cell {
+    font-size: 25px;
+    text-align: center;
+}
