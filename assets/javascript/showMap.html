@@ -31,8 +31,10 @@
       runat="server"
     />
 
-    <div class="maps-link"></div>
-    <button onclick="showTile()">Confirm</button>
+    <div id="maps-link" class="maps-link"></div>
+    <button type="button" id="submit">
+      Confirm
+    </button>
 
     <div class="maps-image"></div>
 
@@ -62,13 +64,18 @@
         google.maps.event.addDomListener(window, "load", initialize);
       });
 
-      document.onkeydown = function(event) {
-        if (event.keyCode === 13) {
-          //checks whether the pressed key is "Enter"
+      $(document).ready(function() {
+        $("#maps-link").keyup(function(event) {
+          if (event.keyCode == 13) {
+            $("#submit").click();
+          }
+        });
+
+        $("#submit").click(function() {
+          $("#submit").attr("disabled", "disabled");
           showTile(event);
-          console.log("enter pressed");
-        }
-      };
+        });
+      });
 
       function showTile(event) {
         console.log("ShowTile");
