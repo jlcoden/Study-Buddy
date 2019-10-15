@@ -78,6 +78,10 @@
           //    var humidity = days.Data[i].weather[0].list[i].humidity;
           var date = new Date(daysData[i].dt * 1000);
           var shortDate = moment(date).format("MM/DD/YYYY");
+          var month = moment(date).format("MMMM");
+          var day = moment(date).format("DD");
+          console.log(month);
+          console.log(day);
           console.log(shortDate);
           var weatherIcon =
             '<img src="https://openweathermap.org/img/w/' +
