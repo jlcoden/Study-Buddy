@@ -28,20 +28,21 @@ function datePull() {
     console.log(dayName);
 }
 
-
-function allowDrop(ev) {
+function allowDropP(ev) {
     ev.preventDefault();
 }
-function drag(ev) {
+function dragP(ev) {
     ev.dataTransfer.setData('text', ev.target.id);
 }
-function drop(ev) {
+function dropP(ev) {
     ev.preventDefault();
-    console.log(ev);
+    console.log(ev);    
     var data = ev.dataTransfer.getData('text');
+    console.log(data);
     var copyButton = document.createElement('div');
-    copyButton.setAttribute('class', 'buttonPreferred');
-    //var original = document.getElementById(data);
-    //copyButton.src = original.src;
+    copyButton.setAttribute('class', (data === 'preferredTemplate') ? 'buttonPreferred  ' : 'buttonCannot');
+    var original = document.getElementById(data);
+    copyButton.src = original.src;
     ev.target.appendChild(copyButton);
 }
+
