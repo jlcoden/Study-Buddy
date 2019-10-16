@@ -38,6 +38,10 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     console.log(ev);
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
+    var data = ev.dataTransfer.getData('text');
+    var copyButton = document.createElement('div');
+    copyButton.setAttribute('class', 'buttonPreferred');
+    //var original = document.getElementById(data);
+    //copyButton.src = original.src;
+    ev.target.appendChild(copyButton);
 }
