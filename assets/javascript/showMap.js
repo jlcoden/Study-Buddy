@@ -38,7 +38,7 @@ $(document).ready(function() {
       .css("position", "absolute")
       .css("left", "1em")
       .css("top", "1em")
-      .css("right", "1em")
+      .css("right", "3em")
       .attr("id", "testId");
 
     $(".card-image").append(searchField);
@@ -73,12 +73,15 @@ function showTile(event) {
     window.lat +
     "," +
     window.lng +
-    "&zoom=17&size=600x600&format=png32&maptype=roadmap&markers=size:mid|color:red|" +
+    "&zoom=20&size=600x600&format=png32&maptype=roadmap&markers=size:mid|color:yellow|" +
     window.lat +
     "," +
     window.lng +
     "&key=AIzaSyCmhlYrcIaalp0JkPrA2_XqDOX-wL9WXdk";
-  $(".card-image").css("background-image", "url(" + url + ")");
+  $(".card-image")
+    .css("background-image", "url(" + url + ")")
+    .css("background-position", "center")
+    .css("background-size", "cover");
   $(".card-image").on("click", function() {
     mapsSelector();
   });
