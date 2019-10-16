@@ -80,9 +80,3 @@ table {
 body {
     background: darkblue;
 }
-
-table, .weekTable, th, td {
-    border: 10px, solid, black;
-    border-radius: 50%;
-    background-image: linear-gradient(to left, white, black, .5);
-}

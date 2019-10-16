@@ -13,7 +13,7 @@
     <!-- link to materialize JS library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- jquery cdn -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -41,8 +41,8 @@
           <p style="font-size:1.25em;letter-spacing:.15em">To add events to your calendar, simply drag and drop the buttons over the corresponding times on the grid. You can expand the button area to cover the time you wish to add data to.</p>
         </div>
         <div class="card-action">
-          <button class="buttonPreferred">Preferred Meet</button>
-          <button class="buttonCannot">Cannot Meet</button>
+          <button class="buttonPreferred" id="data" data="draggable" draggable="true" ondragstart="drag(event)">Preferred Meet</button>
+          <button class="buttonCannot" id="data" draggable="true" ondragstart="drag(event)">Cannot Meet</button>
         </div>
       </div>
     </div>
@@ -186,13 +186,13 @@
         </tr>
         <tr>
           <td>9p</td>
-          <td class="ninePM" id="sundayNinePM"></td>
-          <td class="ninePM" id="mondayNinePM"></td>
-          <td class="ninePM" id="tuesdayNinePM"></td>
-          <td class="ninePM" id="wednesdayNinePM"></td>
-          <td class="ninePM" id="thursday NinePM"></td>
-          <td class="ninePM" id="fridayNinePM"></td>
-          <td class="ninePM" id="saturdayNinePM"></td>
+          <td class="ninePM" id="sundayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="ninePM" id="mondayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="ninePM" id="tuesdayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="ninePM" id="wednesdayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="ninePM" id="thursday NinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="ninePM" id="fridayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="ninePM" id="saturdayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
         </tr>
       </tbody>  
     </table>
@@ -201,8 +201,8 @@
 <div class="row">
   <div class="col s12 m12 center-align">
     <div class="switchButton">
-      <button class="nextButton">BACK</button>
-      <button class="nextButton">NEXT</button>
+      <button>BACK</button>
+      <div><button>NEXT</button></div>
     </div>
   </div>
 </div> 
