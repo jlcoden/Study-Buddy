@@ -9,11 +9,11 @@
     <!-- <link rel="stylesheet" type="text/css" href="assets/styles/styles.css"> -->
     <link rel="stylesheet" type="text/css" href="assets/styles/weekly.css">
     <!-- link to materialize css library -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- link to materialize JS library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- jquery cdn -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -21,23 +21,28 @@
 </head>
 <body>
 
-<div class="container">
-  <!-- <div class="row">
-    <div class="column">
-        <button class="buttonPreferred">PREFERRED</button>
-        <button class="buttonCannot">CANNOT</button>
-    </div>
-  </div> -->
+<div class="container-fluid">
+  <div class="row">
+        <div class="APIdata col s12 m2">
+          <h4>DATA HERE</h4>
+        </div>
+        <div class="col s12 m8">
+            <h1 style="text-align:center">STUDY BUDDY</h1>
+        </div>
+        <div class="col s12 m2">
+          <h4>NERDHERD</h4>
+        </div>
+  </div>
   <div class="row">
     <div class="col s12 m2">
-      <div class="card-panel hoverable blue-grey darken-1">
+      <div class="card-panel hoverable blue-grey lighten-1">
         <div class="card-content white-text">
-          <span class="card-title">Add Schedule</span>
-          <p>To add events to your calendar, simply drag and drop the buttons over the corresponding times on the grid. You can expand the button area to cover the time you wish to add data to.</p>
+          <span class="card-title" style="font-size:1.25em;letter-spacing:.15em">Add Schedule Events</span>
+          <p style="font-size:1.25em;letter-spacing:.15em">To add events to your calendar, simply drag and drop the buttons over the corresponding times on the grid. You can expand the button area to cover the time you wish to add data to.</p>
         </div>
         <div class="card-action">
-          <button class="buttonPreferred">Preferred Meet</button>
-          <button class="buttonCannot">Cannot Meet</button>
+          <button class="buttonPreferred" id="data" data="draggable" draggable="true" ondragstart="drag(event)">Preferred Meet</button>
+          <button class="buttonCannot" id="data" draggable="true" ondragstart="drag(event)">Cannot Meet</button>
         </div>
       </div>
     </div>
@@ -45,12 +50,12 @@
 
 
   <div class="col s12 m10 container">
-    <table>
+    <table class="weekTable bordered centered responsive-table">
       <thead>
         <tr>
           <th></th>
-          <th class="dayheader">Sunday <div class="col dayNumber"></div></th>
-          <th class="dayheader">Monday <div class="col dayNumber"></div></th>
+          <th class="dayheader">Sunday <div class="dayNumber"></div></th>
+          <th class="dayheader">Monday <div class="dayNumber"></div></th>
           <th class="dayheader">Tuesday <div class="dayNumber"></div></th>
           <th class="dayheader">Wednesday <div class="dayNumber"></div></th>
           <th class="dayheader">Thursday <div class="dayNumber"></div></th>
@@ -71,13 +76,13 @@
         </tr>
         <tr>
           <td>10a</td>
-          <td class="tenAM" id="sundayNine"></td>
-          <td class="tenAM" id="mondayNine"></td>
-          <td class="tenAM" id="tuesdayNine"></td>
-          <td class="tenAM" id="wednesdayNine"></td>
-          <td class="tenAM" id="thursday Nine"></td>
-          <td class="tenAM" id="fridayNine"></td>
-          <td class="tenAM" id="saturdayNine"></td>
+          <td class="tenAM" id="sundayTen"></td>
+          <td class="tenAM" id="mondayTen"></td>
+          <td class="tenAM" id="tuesdayTen"></td>
+          <td class="tenAM" id="wednesdayTen"></td>
+          <td class="tenAM" id="thursday Ten"></td>
+          <td class="tenAM" id="fridayTen"></td>
+          <td class="tenAM" id="saturdayTen"></td>
         </tr>
         <tr>
           <td>11a</td>
@@ -91,13 +96,13 @@
         </tr>
         <tr>
           <td>12p</td>
-          <td class="twelvePM" id="sundayNine"></td>
-          <td class="twelvePM" id="mondayNine"></td>
-          <td class="twelvePM" id="tuesdayNine"></td>
-          <td class="twelvePM" id="wednesdayNine"></td>
-          <td class="twelvePM" id="thursday Nine"></td>
-          <td class="twelvePM" id="fridayNine"></td>
-          <td class="twelvePM" id="saturdayNine"></td>
+          <td class="twelvePM" id="sundaytwelvePM"></td>
+          <td class="twelvePM" id="mondaytwelvePM"></td>
+          <td class="twelvePM" id="tuesdaytwelvePM"></td>
+          <td class="twelvePM" id="wednesdaytwelvePM"></td>
+          <td class="twelvePM" id="thursday twelvePM"></td>
+          <td class="twelvePM" id="fridaytwelvePM"></td>
+          <td class="twelvePM" id="saturdaytwelve"></td>
         </tr>
         <tr>
           <td>1p</td>
@@ -111,13 +116,13 @@
         </tr>
         <tr>
           <td>2p</td>
-          <td class="twoPM" id="sundayNine"></td>
-          <td class="twoPM" id="mondayNine"></td>
-          <td class="twoPM" id="tuesdayNine"></td>
-          <td class="twoPM" id="wednesdayNine"></td>
-          <td class="twoPM" id="thursday Nine"></td>
-          <td class="twoPM" id="fridayNine"></td>
-          <td class="twoPM" id="saturdayNine"></td>
+          <td class="twoPM" id="sundayTwoPM"></td>
+          <td class="twoPM" id="mondayTwoPM"></td>
+          <td class="twoPM" id="tuesdayTwoPM"></td>
+          <td class="twoPM" id="wednesdayTwoPM"></td>
+          <td class="twoPM" id="thursday TwoPM"></td>
+          <td class="twoPM" id="fridayTwoPM"></td>
+          <td class="twoPM" id="saturdayTwoPM"></td>
         </tr>
         <tr>
           <td>3p</td>
@@ -131,13 +136,13 @@
         </tr>
         <tr>
           <td>4p</td>
-          <td class="fourPM" id="sundayNine"></td>
-          <td class="fourPM" id="mondayNine"></td>
-          <td class="fourPM" id="tuesdayNine"></td>
-          <td class="fourPM" id="wednesdayNine"></td>
-          <td class="fourPM" id="thursday Nine"></td>
-          <td class="fourPM" id="fridayNine"></td>
-          <td class="fourPM" id="saturdayNine"></td>
+          <td class="fourPM" id="sundayFourPM"></td>
+          <td class="fourPM" id="mondayFourPM"></td>
+          <td class="fourPM" id="tuesdayFourPM"></td>
+          <td class="fourPM" id="wednesdayFourPM"></td>
+          <td class="fourPM" id="thursday FourPM"></td>
+          <td class="fourPM" id="fridayFourPM"></td>
+          <td class="fourPM" id="saturdayFourPM"></td>
         </tr>
         <tr>
           <td>5p</td>
@@ -151,13 +156,13 @@
         </tr>
         <tr>
           <td>6p</td>
-          <td class="sixPM" id="sundayNine"></td>
-          <td class="sixPM" id="mondayNine"></td>
-          <td class="sixPM" id="tuesdayNine"></td>
-          <td class="sixPM" id="wednesdayNine"></td>
-          <td class="sixPM" id="thursday Nine"></td>
-          <td class="sixPM" id="fridayNine"></td>
-          <td class="sixPM" id="saturdayNine"></td>
+          <td class="sixPM" id="sundaySixPM"></td>
+          <td class="sixPM" id="mondaySixPM"></td>
+          <td class="sixPM" id="tuesdaySixPM"></td>
+          <td class="sixPM" id="wednesdaySixPM"></td>
+          <td class="sixPM" id="thursday SixPM"></td>
+          <td class="sixPM" id="fridaySixPM"></td>
+          <td class="sixPM" id="saturdaySixPM"></td>
         </tr>
         <tr>
           <td>7p</td>
@@ -171,23 +176,23 @@
         </tr>
         <tr>
           <td>8p</td>
-          <td class="eightPM" id="sundayNine"></td>
-          <td class="eightPM" id="mondayNine"></td>
-          <td class="eightPM" id="tuesdayNine"></td>
-          <td class="eightPM" id="wednesdayNine"></td>
-          <td class="eightPM" id="thursday Nine"></td>
-          <td class="eightPM" id="fridayNine"></td>
-          <td class="eightPM" id="saturdayNine"></td>
+          <td class="eightPM" id="sundayEightPM"></td>
+          <td class="eightPM" id="mondayEightPM"></td>
+          <td class="eightPM" id="tuesdayEightPM"></td>
+          <td class="eightPM" id="wednesdayEightPM"></td>
+          <td class="eightPM" id="thursday EightPM"></td>
+          <td class="eightPM" id="fridayEightPM"></td>
+          <td class="eightPM" id="saturdayEightPM"></td>
         </tr>
         <tr>
           <td>9p</td>
-          <td class="ninePM" id="sundayNinePM"></td>
-          <td class="ninePM" id="mondayNinePM"></td>
-          <td class="ninePM" id="tuesdayNinePM"></td>
-          <td class="ninePM" id="wednesdayNinePM"></td>
-          <td class="ninePM" id="thursday NinePM"></td>
-          <td class="ninePM" id="fridayNinePM"></td>
-          <td class="ninePM" id="saturdayNinePM"></td>
+          <td class="ninePM" id="sundayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="ninePM" id="mondayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="ninePM" id="tuesdayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="ninePM" id="wednesdayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="ninePM" id="thursday NinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="ninePM" id="fridayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="ninePM" id="saturdayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
         </tr>
       </tbody>  
     </table>
@@ -196,8 +201,8 @@
 <div class="row">
   <div class="col s12 m12 center-align">
     <div class="switchButton">
-      <button class="nextButton">BACK</button>
-      <button class="nextButton">NEXT</button>
+      <button>BACK</button>
+      <div><button>NEXT</button></div>
     </div>
   </div>
 </div> 

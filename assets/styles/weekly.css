@@ -6,12 +6,14 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.container {
+.container-fluid {
+    flex: 1;
+    flex-direction: row;
+    position: relative;
     background: grey;
     flex: 1;
     padding-top: 25px;
-    overflow-y: scroll;
-    height: 100vh;
+    height: 100%;
 }
 
 .row {
@@ -48,7 +50,7 @@ button:hover {
 
 
 .dayheader {
-    background: red;
+    background:rgba(40, 40, 40, .7);
     height: 5em;
     text-align: center;
 }
@@ -60,8 +62,21 @@ table {
 
 .switchButton {
     flex: 1;
-    flex-basis: 100%;
+    flex-basis: 40%;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.dayheader {
+    flex: 1;
+    flex-direction: row;
+}
+
+.apiData {
+    height: 100%
+}
+
+body {
+    background: darkblue;
 }
