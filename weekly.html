@@ -41,8 +41,8 @@
           <p style="font-size:1.25em;letter-spacing:.15em">To add events to your calendar, simply drag and drop the buttons over the corresponding times on the grid. You can expand the button area to cover the time you wish to add data to.</p>
         </div>
         <div class="card-action">
-          <button class="buttonPreferred" id="data" data="draggable" draggable="true" ondragstart="drag(event)">Preferred Meet</button>
-          <button class="buttonCannot" id="data" draggable="true" ondragstart="drag(event)">Cannot Meet</button>
+          <button class="buttonPreferred" id="preferredTemplate" data="draggable" draggable="true" ondragstart="dragP(event)">Preferred Meet</button>
+          <button class="buttonCannot" id="cannotTemplate" draggable="true" ondragstart="dragP(event)">Cannot Meet</button>
         </div>
       </div>
     </div>
@@ -166,7 +166,7 @@
         </tr>
         <tr>
           <td>7p</td>
-          <td class="sevenPM" id="sundaySevenPM"></td>
+          <td class="sevenPM" id="sundaySevenPM"></td>  
           <td class="sevenPM" id="mondaySevenPM"></td>
           <td class="sevenPM" id="tuesdaySevenPM"></td>
           <td class="sevenPM" id="wednesdaySevenPM"></td>
@@ -186,13 +186,13 @@
         </tr>
         <tr>
           <td>9p</td>
-          <td class="ninePM" id="sundayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-          <td class="ninePM" id="mondayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-          <td class="ninePM" id="tuesdayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-          <td class="ninePM" id="wednesdayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-          <td class="ninePM" id="thursday NinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-          <td class="ninePM" id="fridayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-          <td class="ninePM" id="saturdayNinePM" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="ninePM" id="sundayNinePM" ondrop="dropP(event)" ondragover="allowDropP(event)"></td>
+          <td class="ninePM" id="mondayNinePM" ondrop="dropP(event)" ondragover="allowDropP(event)"></td>
+          <td class="ninePM" id="tuesdayNinePM" ondrop="dropP(event)" ondragover="allowDropP(event)"></td>
+          <td class="ninePM" id="wednesdayNinePM" ondrop="dropP(event)" ondragover="allowDropP(event)"></td>
+          <td class="ninePM" id="thursday NinePM" ondrop="dropP(event)" ondragover="allowDropP(event)"></td>
+          <td class="ninePM" id="fridayNinePM" ondrop="dropP(event)" ondragover="allowDropP(event)"></td>
+          <td class="ninePM" id="saturdayNinePM" ondrop="dropP(event)" ondragover="allowDropP(event)"></td>
         </tr>
       </tbody>  
     </table>
