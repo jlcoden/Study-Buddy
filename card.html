@@ -1,34 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- link to materialize css library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
     <!-- link to materialize JS library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CARDS</title>
-</head>
-<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- jquery cdn -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
 
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmhlYrcIaalp0JkPrA2_XqDOX-wL9WXdk&libraries=places"
+      type="text/javascript"
+    ></script>
+
+    <!-- Jquery libraries-->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CARDS</title>
+  </head>
+  <body>
     <div class="row">
-        <div class="col s12 m2">
-            <div class="card">
-            <div class="card-image">
-                <img src="../Study-Buddy/assets/images/blankDate.png">
-                <span class="card-title">Card Title</span>
+      <div class="col s12 m3">
+        <div class="card">
+          <div class="card-image">
+            <img src="../Study-Buddy/assets/images/blankDate.png" />
+            <span class="card-title">Card Title</span>
+            <div class="fixed-action-btn" style="position:relative;right:0">
+              <a class="btn-floating btn-large red">
+                <i class="large material-icons">mode_edit</i>
+              </a>
+              <ul>
+                <li>
+                  <a class="btn-floating red"
+                    ><i class="material-icons">L</i></a
+                  >
+                </li>
+                <li>
+                  <a class="btn-floating yellow darken-1"
+                    ><i class="material-icons">U</i></a
+                  >
+                </li>
+                <li>
+                  <a class="btn-floating green"
+                    ><i class="material-icons">D</i></a
+                  >
+                </li>
+              </ul>
             </div>
-            <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-                <a href="#">This is a link</a>
-            </div>
-            </div>
+          </div>
+          <div class="card-content">
+            <p>
+              You can approve, cancel, or get directions to a meetup from the
+              button above.
+            </p>
+          </div>
+          <div class="card-action">
+            <a href="#">Remove Event</a>
+          </div>
         </div>
+      </div>
     </div>
-    
-</body>
+
+    <script src="assets/javascript/javascript.js"></script>
+    <script src="assets/javascript/showMap.js"></script>
+  </body>
 </html>
