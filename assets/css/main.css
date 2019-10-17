@@ -81,3 +81,12 @@ background: rgb(50, 200, 50);
   top: 0;
   left: 0;
 }
+
+/*materialize card css*/
+.materializeCard {
+  position: absolute;
+  top: 50%; left:50%;
+  height: 10em;
+  width: 6em;
+  background: white;
+}
