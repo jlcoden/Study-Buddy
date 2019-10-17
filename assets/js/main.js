@@ -1,37 +1,79 @@
-console.log('Hello.');
+const firebaseConfig = {
+  apiKey: "AIzaSyDCN-ygwLXWpvA37aKz5R_SdOafbhNoydU",
+  authDomain: "studybuddy-eba82.firebaseapp.com",
+  databaseURL: "https://studybuddy-eba82.firebaseio.com",
+  projectId: "studybuddy-eba82",
+  storageBucket: "studybuddy-eba82.appspot.com",
+  messagingSenderId: "373388498163",
+  appId: "1:373388498163:web:edc7514114a8d0197ad386"
+};
 
+firebase.initializeApp(firebaseConfig);
 
-function allowDropP(ev) {
-    ev.preventDefault();
-}
-function dragP(ev) {
-    ev.dataTransfer.setData('text', ev.target.id);
-}
-function dropP(ev) {
-    ev.preventDefault();
-    console.log(ev);    
-    var data = ev.dataTransfer.getData('text');
-    console.log(data);
-    // var copyButton = document.createElement('div');
-    let copyButton = $('<div>');
-    copyButton.addClass((data === 'preferredTemplate') ? 'preferred event-template' : 'busy event-template');
-    copyButton.addClass((data === 'preferredTemplate') ? 'preferredCard' : 'busyCard');
-    // copyButton.setAttribute('class', (data === 'preferredTemplate') ? '.busy.event-template' : 'buttonCannot');
-    // var original = document.getElementById(data);
-    // copyButton.src = original.src;
-    //ev.target.appendChild(copyButton);
-    //console.log(ev.target);
-    $(ev.target).append(copyButton);    
-}
+$('#sign-in').click(function() {
+  let email = $('#login-email').val();
+  let password = $('#login-password').val();
+  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+      // TODO: display an error message of some sort
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(error.message);
+    });
+  });
+});
 
+$('#register').click(function() {
+  let email = $('#login-email').val();
+  let password = $('#login-password').val();
+  console.log(email + ', ' + password);
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    // TODO: display an error message of some sort
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(error.message);
+  });
+});
 
-$(document).on('click', '.preferredCard', function() {
-    console.log("ive been clicked");
-    console.log(this);
-    $(this).attr('onclick', 'showCard()');
+$('#sign-out').click(function() {
+  firebase.auth().signOut();
 })
 
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    console.log('Authenticated.');
+    showUserPage();
+    initStudyBuddy();
+  } else {
+    console.log('Deauthenticated.');
+    showLanding();
+  }
+});
 
-function showCard() {
-    console.log(this);
+function signOut() {
+  firebase.auth().signOut().then(function() {
+    // Deauthenticated
+    showLanding();
+  }).catch(function(error) {
+    console.log(error);
+  });
+}
+
+function showLanding() {
+  $('.userPage').css('display', 'none');
+  $('.landing').css('display', 'flex');
+}
+
+function showUserPage() {
+  $('.userPage').css('display', 'flex');
+  $('.landing').css('display', 'none');
+}
+
+function initStudyBuddy() {
+  loadUserDetails();
+  // TODO: set up firebase listeners
+}
+
+function loadUserDetails() {
+  $('.header .user-info').text(firebase.auth().currentUser.email);
 }
