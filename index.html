@@ -9,39 +9,39 @@
 <body>
   <div class="header">
     <span class="title">Study Buddy</span>
-    <span clas="user-info">Welcome back, Andrew.</span>
+    <span class="user-info">Welcome back, Andrew.</span>
   </div>
   <div class="container">
     <div class="sidebar">
-      <div class="preferred event-template">
+      <div class="preferred event-template" id="preferredTemplate" data="draggable" draggable="true" ondragstart="dragP(event)">
         <span class="title">Preferred</span>
       </div>
-      <div class="busy event-template">
+      <div class="busy event-template" id="cannotTemplate" draggable="true" ondragstart="dragP(event)">
         <span class="title">Busy</span>
       </div>
     </div>
     <div class="calendar">
       <div class="current week">
         <span class="title">This Week</span>
-        <div class="day">
+        <div class="day" ondrop="dropP(event)" ondragover="allowDropP(event)">
           <span class="day-info">1</span>
         </div>
-        <div class="day">
+        <div class="day" ondrop="dropP(event)" ondragover="allowDropP(event)">
           <span class="day-info">1</span>
         </div>
-        <div class="day">
+        <div class="day" ondrop="dropP(event)" ondragover="allowDropP(event)">
           <span class="day-info">1</span>
         </div>
-        <div class="day">
+        <div class="day" ondrop="dropP(event)" ondragover="allowDropP(event)">
           <span class="day-info">1</span>
         </div>
-        <div class="day">
+        <div class="day" ondrop="dropP(event)" ondragover="allowDropP(event)">
           <span class="day-info">1</span>
         </div>
-        <div class="day">
+        <div class="day" ondrop="dropP(event)" ondragover="allowDropP(event)">
           <span class="day-info">1</span>
         </div>
-        <div class="day">
+        <div class="day" ondrop="dropP(event)" ondragover="allowDropP(event)">
           <span class="day-info">1</span>
         </div>
       </div>

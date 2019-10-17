@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- link to reset -->
+    <!-- <link rel="stylesheet" type="text/css" href="assets/styles/reset.css"> -->
+    <!-- link to external custom stylesheet -->
+    <!-- <link rel="stylesheet" type="text/css" href="assets/styles/styles.css"> -->
+    <link rel="stylesheet" type="text/css" href="assets/styles/weekly.css">
+    <!-- link to materialize css library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- link to materialize JS library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NERDHERD</title>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+        <div class="APIdata col s12 m2">
+          <h4>DATA HERE</h4>
+        </div>
+        <div class="col s12 m8">
+            <h1 style="text-align:center">STUDY BUDDY</h1>
+        </div>
+        <div class="col s12 m2">
+          <h4>NERDHERD</h4>
+        </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m2">
+      <div class="card-panel hoverable blue-grey lighten-1">
+        <div class="card-content white-text">
+          <span class="card-title" style="font-size:1.25em;letter-spacing:.15em">Add Schedule Events</span>
+          <p style="font-size:1.25em;letter-spacing:.15em">To add events to your calendar, simply drag and drop the buttons over the corresponding times on the grid. You can expand the button area to cover the time you wish to add data to.</p>
+        </div>
+        <div class="card-action">
+          <button class="buttonPreferred" id="preferredTemplate" data="draggable" draggable="true" ondragstart="dragP(event)">Preferred Meet</button>
+          <button class="buttonCannot" id="cannotTemplate" draggable="true" ondragstart="dragP(event)">Cannot Meet</button>
+        </div>
+      </div>
+    </div>
+  
+
+
+  <div class="col s12 m10 container">
+    <table class="weekTable bordered centered responsive-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="dayheader">Sunday <div class="dayNumber"></div></th>
+          <th class="dayheader">Monday <div class="dayNumber"></div></th>
+          <th class="dayheader">Tuesday <div class="dayNumber"></div></th>
+          <th class="dayheader">Wednesday <div class="dayNumber"></div></th>
+          <th class="dayheader">Thursday <div class="dayNumber"></div></th>
+          <th class="dayheader">Friday <div class="dayNumber"></div></th>
+          <th class="dayheader">Saturday <div class="dayNumber"></div></th>
+        </tr>
+      <thead>
+      <tbody>
+        <tr>
+          <td>9a</td>
+          <td class="nineAM" id="sundayNine"></td>
+          <td class="nineAM" id="mondayNine"></td>
+          <td class="nineAM" id="tuesdayNine"></td>
+          <td class="nineAM" id="wednesdayNine"></td>
+          <td class="nineAM" id="thursday Nine"></td>
+          <td class="nineAM" id="fridayNine"></td>
+          <td class="nineAM" id="saturdayNine"></td>
+        </tr>
+        <tr>
+          <td>10a</td>
+          <td class="tenAM" id="sundayTen"></td>
+          <td class="tenAM" id="mondayTen"></td>
+          <td class="tenAM" id="tuesdayTen"></td>
+          <td class="tenAM" id="wednesdayTen"></td>
+          <td class="tenAM" id="thursday Ten"></td>
+          <td class="tenAM" id="fridayTen"></td>
+          <td class="tenAM" id="saturdayTen"></td>
+        </tr>
+        <tr>
+          <td>11a</td>
+          <td class="elevenAM" id="sundayEleven"></td>
+          <td class="elevenAM" id="mondayEleven"></td>
+          <td class="elevenAM" id="tuesdayEleven"></td>
+          <td class="elevenAM" id="wednesdayEleven"></td>
+          <td class="elevenAM" id="thursdayEleven"></td>
+          <td class="elevenAM" id="fridayEleven"></td>
+          <td class="elevenAM" id="saturdayEleven"></td>
+        </tr>
+        <tr>
+          <td>12p</td>
+          <td class="twelvePM" id="sundaytwelvePM"></td>
+          <td class="twelvePM" id="mondaytwelvePM"></td>
+          <td class="twelvePM" id="tuesdaytwelvePM"></td>
+          <td class="twelvePM" id="wednesdaytwelvePM"></td>
+          <td class="twelvePM" id="thursday twelvePM"></td>
+          <td class="twelvePM" id="fridaytwelvePM"></td>
+          <td class="twelvePM" id="saturdaytwelve"></td>
+        </tr>
+        <tr>
+          <td>1p</td>
+          <td class="onePM" id="sundayOnePM"></td>
+          <td class="onePM" id="mondayOnePM"></td>
+          <td class="onePM" id="tuesdayOnePM"></td>
+          <td class="onePM" id="wednesdayOnePM"></td>
+          <td class="onePM" id="thursday OnePM"></td>
+          <td class="onePM" id="fridayOnePM"></td>
+          <td class="onePM" id="saturdayOnePM"></td>
+        </tr>
+        <tr>
+          <td>2p</td>
+          <td class="twoPM" id="sundayTwoPM"></td>
+          <td class="twoPM" id="mondayTwoPM"></td>
+          <td class="twoPM" id="tuesdayTwoPM"></td>
+          <td class="twoPM" id="wednesdayTwoPM"></td>
+          <td class="twoPM" id="thursday TwoPM"></td>
+          <td class="twoPM" id="fridayTwoPM"></td>
+          <td class="twoPM" id="saturdayTwoPM"></td>
+        </tr>
+        <tr>
+          <td>3p</td>
+          <td class="threePM" id="sundayThreePM"></td>
+          <td class="threePM" id="mondayThreePM"></td>
+          <td class="threePM" id="tuesdayThreePM"></td>
+          <td class="threePM" id="wednesdayThreePM"></td>
+          <td class="threePM" id="thursday ThreePM"></td>
+          <td class="threePM" id="fridayThreePM"></td>
+          <td class="threePM" id="saturdayThreePM"></td>
+        </tr>
+        <tr>
+          <td>4p</td>
+          <td class="fourPM" id="sundayFourPM"></td>
+          <td class="fourPM" id="mondayFourPM"></td>
+          <td class="fourPM" id="tuesdayFourPM"></td>
+          <td class="fourPM" id="wednesdayFourPM"></td>
+          <td class="fourPM" id="thursday FourPM"></td>
+          <td class="fourPM" id="fridayFourPM"></td>
+          <td class="fourPM" id="saturdayFourPM"></td>
+        </tr>
+        <tr>
+          <td>5p</td>
+          <td class="fivePM" id="sundayFivePM"></td>
+          <td class="fivePM" id="mondayFivePM"></td>
+          <td class="fivePM" id="tuesdayFivePM"></td>
+          <td class="fivePM" id="wednesdayFivePM"></td>
+          <td class="fivePM" id="thursday FivePM"></td>
+          <td class="fivePM" id="fridayFivePM"></td>
+          <td class="fivePM" id="saturdayFivePM"></td>
+        </tr>
+        <tr>
+          <td>6p</td>
+          <td class="sixPM" id="sundaySixPM"></td>
+          <td class="sixPM" id="mondaySixPM"></td>
+          <td class="sixPM" id="tuesdaySixPM"></td>
+          <td class="sixPM" id="wednesdaySixPM"></td>
+          <td class="sixPM" id="thursday SixPM"></td>
+          <td class="sixPM" id="fridaySixPM"></td>
+          <td class="sixPM" id="saturdaySixPM"></td>
+        </tr>
+        <tr>
+          <td>7p</td>
+          <td class="sevenPM" id="sundaySevenPM"></td>  
+          <td class="sevenPM" id="mondaySevenPM"></td>
+          <td class="sevenPM" id="tuesdaySevenPM"></td>
+          <td class="sevenPM" id="wednesdaySevenPM"></td>
+          <td class="sevenPM" id="thursday SevenPM"></td>
+          <td class="sevenPM" id="fridaySevenPM"></td>
+          <td class="sevenPM" id="saturdaySevenPM"></td>
+        </tr>
+        <tr>
+          <td>8p</td>
+          <td class="eightPM" id="sundayEightPM"></td>
+          <td class="eightPM" id="mondayEightPM"></td>
+          <td class="eightPM" id="tuesdayEightPM"></td>
+          <td class="eightPM" id="wednesdayEightPM"></td>
+          <td class="eightPM" id="thursday EightPM"></td>
+          <td class="eightPM" id="fridayEightPM"></td>
+          <td class="eightPM" id="saturdayEightPM"></td>
+        </tr>
+        <tr>
+          <td>9p</td>
+          <td class="ninePM" id="sundayNinePM" ondrop="dropP(event)" ondragover="allowDropP(event)"></td>
+          <td class="ninePM" id="mondayNinePM" ondrop="dropP(event)" ondragover="allowDropP(event)"></td>
+          <td class="ninePM" id="tuesdayNinePM" ondrop="dropP(event)" ondragover="allowDropP(event)"></td>
+          <td class="ninePM" id="wednesdayNinePM" ondrop="dropP(event)" ondragover="allowDropP(event)"></td>
+          <td class="ninePM" id="thursday NinePM" ondrop="dropP(event)" ondragover="allowDropP(event)"></td>
+          <td class="ninePM" id="fridayNinePM" ondrop="dropP(event)" ondragover="allowDropP(event)"></td>
+          <td class="ninePM" id="saturdayNinePM" ondrop="dropP(event)" ondragover="allowDropP(event)"></td>
+        </tr>
+      </tbody>  
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m12 center-align">
+    <div class="switchButton">
+      <button>BACK</button>
+      <div><button>NEXT</button></div>
+    </div>
+  </div>
+</div> 
+</div>
+  
+  <script src="assets/javascript/javascript.js"></script>
+</body>
+</html>
