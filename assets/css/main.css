@@ -6,13 +6,12 @@ body {
   height: 100% !important;
   padding: 0;
   margin: 0;
-  color: white;
   font-size: 0.8em;
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: 0.1em;
   background-color: rgb(80, 100, 140);
+  color: white;
 }
 
 .landing {
@@ -23,6 +22,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 2em;
+  background-image: radial-gradient(rgbA(0, 0, 0, 0.00), rgbA(0, 0, 0, 0.60));
 }
 
 .landing .title, .header .title {
@@ -30,14 +30,25 @@ body {
   letter-spacing: 0.2em;
   font-family: 'Roboto Slab';
   margin: 1em;
+  text-transform: uppercase;
 }
 
 .landing .title {
   font-weight: 300;
+  text-shadow: 0 0 1em black,
+               2px 0px 0 black,
+               0px 2px 0 black,
+               2px 2px 0 black;
 }
 
 .header .title {
+  flex-grow: 1;
   font-weight: 300;
+  text-shadow: 0 0 1em black,
+               0 0 1em black,
+               1px 0px 1px black,
+               0px 1px 1px black,
+               1px 1px 1px black;
 }
 
 .landing .title:before, .header .title:before {
@@ -72,13 +83,41 @@ body {
   justify-content: space-between;
 }
 
-.userPage {
+.header .user-info {
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  margin-right: 2em;
+}
+
+.userPage, .groupsPage {
   position: absolute;
   top: 0; bottom: 0; left: 0; right: 0;
   flex-direction: row;
+  margin: 1em;
+}
+
+.userPage {
   padding-top: 6rem;
 }
-.userPage, .landing {
+
+.groupsPage {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.groupsPage .introduction {
+  width: 40em;
+}
+.groupsPage .introduction .card-title {
+  color: white !important;
+}
+.groupsPage input {
+  color: white;
+}
+
+.userPage, .groupsPage, .landing {
   display: none;
 }
 
@@ -86,8 +125,13 @@ body {
   padding: 1rem;
 }
 
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 30em;
+}
+
 .event-template {
-  color: white;
   padding: 1em;
   margin-bottom: 1em;
   background-color: white;
@@ -137,20 +181,78 @@ body {
   flex-direction: column;
   align-items: center;
   flex: 1;
+  font-size: 0.75em;
 }
-.calendar .day .day-info {
+.calendar .day .dayInfo {
   color: rgbA(0, 0, 0, 0.80);
   font-family: 'Roboto Slab';
   font-size: 2em;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dayInfo .dayName {
+  font-weight: 400;
+  font-size: 0.75em;
+}
+.dayInfo .dayNumber {
+  font-size: 1.25em;
 }
 .calendar .week .title {
   font-family: 'Roboto Slab';
   /* font-style: italic; */
-  font-weight: 100;
+  font-weight: 400;
   letter-spacing: 0.2em;
-  color: rgbA(0, 0, 0, 0.20);
+  color: rgbA(0, 0, 0, 0.40);
   position: absolute;
   top: -1rem;
   left: 0;
   font-size: 1.8em;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.sidebar .card {
+  flex-grow: 1;
+  border-radius: 1em;
+  margin-bottom: 0;
+  color: #333333;
+  box-shadow: 0px 0px 2em rgbA(0, 0, 0, 0.50);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .card-image {
+  position: relative;
+  border-radius: 1em;
+  background-size: cover;
+  background-position: center;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.card-image.editing-location:before {
+  position: absolute;
+  content: '';
+  top: 0; left: 0; right: 0;
+  height: 10em;
+  background: linear-gradient(rgbA(0,0,0,0.80) 50%,rgbA(0,0,0,0.00));
+}
+.card-image .input-field {
+  position: absolute;
+  left: 1em; right: 1em; top: 0;
+}
+.card-image input {
+  color: white;
+}
+
+.sidebar .card-content {
+  position: relative;
+}
+
+.sidebar .card .fixed-action-btn {
+  position: absolute;
+  top: -2.5em;
+  right: 1.25em;
 }
