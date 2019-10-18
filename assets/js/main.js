@@ -18,11 +18,9 @@ $('#sign-in').click(function() {
   let email = $('#login-email').val();
   let password = $('#login-password').val();
   firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(error.message);
-    });
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(error.message);
   });
 });
 
@@ -69,15 +67,17 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     console.log('Authenticated.');
     userId = user.uid;
-    firebase.database().ref('users').child(userId).once('value', function(snapshot) {
-      if (snapshot.val()) {
-        userData = snapshot.val();
-        showUserPage();
-        initStudyBuddy();
-      } else {
-        showGroupsPage();
-      }
-    });
+    firebase.database().ref('users')
+                       .child(userId)
+                       .once('value', function(snapshot) {
+                          if (snapshot.val()) {
+                            userData = snapshot.val();
+                            showUserPage();
+                            initStudyBuddy();
+                          } else {
+                            showGroupsPage();
+                          }
+                        });
   } else {
     console.log('Deauthenticated.');
     showLanding();
@@ -192,18 +192,23 @@ function drop(ev) {
   let monthOfYear = $(ev.target).attr('data-monthOfYear');
   let dayOfMonth = $(ev.target).attr('data-dayOfMonth');
   let dayName = $(ev.target).attr('data-dayOfWeek');
-  let eventRef = firebase.database().ref('groups').child(userData.groupName).child('calendar').child(monthOfYear).child(dayOfMonth).push({
-    'creator' : userId,
-    'eventType' : eventType.replace('event-template', '').replace('live', '').trim(),
-    'month' : monthOfYear,
-    'day' : dayOfMonth,
-    'dayName' : dayName
-  });
+  let eventRef = firebase.database()
+                         .ref('groups')
+                         .child(userData.groupName)
+                         .child('calendar')
+                         .child(monthOfYear)
+                         .child(dayOfMonth)
+                         .push({
+                           'creator' : userId,
+                           'eventType' : eventType.replace('event-template', '').replace('live', '').trim(),
+                           'month' : monthOfYear,
+                           'day' : dayOfMonth,
+                           'dayName' : dayName
+                         });
   let eventId = eventRef.key;
   let copyButton = $('<div>');
   copyButton.addClass(eventType);
   copyButton.attr('data-firebase-key', eventId);
-  //$(ev.target).append(copyButton);
 }
 
 $(document).on('click', '.live.event-template', function() {
