@@ -1,5 +1,7 @@
 # Study-Buddy
 
+### StudyBuddy is an app designed to let students arrange study sessions. It helps organize your schedule and strengthen your network. It offers weather data, maps, and directions to study session meet ups.
+
 >Instructions for use:
 1. login uses email, yourname@test.com
 2. password is not restricted, not publicly available
