@@ -39,5 +39,6 @@ Technologies Used:
 - CSS/HTML
 - Materialize Framework
 - Javascript
+- Firebase
 
-Developers/App Creators: Andrew Miller Josh Cosson, Eric Choi, Eric Vongsay, Patrick Schroedl
+Developers/App Creators: Andrew Miller, Josh Cosson, Eric Choi, Eric Vongsay, Patrick Schroedl
