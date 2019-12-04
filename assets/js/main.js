@@ -168,7 +168,8 @@ function loadGroupDetails() {
 
 let calendarEvents = {};
 
-function followGroupCalendar() {
+async function followGroupCalendar() {
+  await loadGroupDetails();
   let month = new Date().getMonth();
   let day = new Date().getDate();
   firebase.database().ref('groups').child(userData.groupName).child('calendar').on('value', function(snapshot) {
