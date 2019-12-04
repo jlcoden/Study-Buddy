@@ -10,6 +10,8 @@ const firebaseConfig = {
 
 let userId;
 let userData;
+let groupData;
+let groupMemberCount = 0;
 
 firebase.initializeApp(firebaseConfig);
 hideEventCard();
@@ -21,6 +23,7 @@ $('#sign-in').click(function() {
     var errorCode = error.code;
     var errorMessage = error.message;
     console.log(error.message);
+    showLoginResult(error.message);
   });
 });
 
@@ -33,8 +36,16 @@ $('#register').click(function() {
     var errorCode = error.code;
     var errorMessage = error.message;
     console.log(error.message);
+    showLoginResult(error.message);
   });
 });
+
+function showLoginResult(message) {
+  $('.landing span.result').text(message);
+  setTimeout(function() {
+    $('.landing span.result').text('');
+  }, 4000);
+}
 
 $('#sign-out').click(function() {
   firebase.auth().signOut();
@@ -51,17 +62,40 @@ $('#enterGroup').click(function() {
       firebase.database().ref('users').child(userId).once('value', function(snapshot) {
         if (snapshot.val()) {
           userData = snapshot.val();
+          showUserPage();
+          initStudyBuddy();
         }
       });
-      showUserPage();
-      initStudyBuddy();
     });
   }
 });
 
-$('.sidebar .card #editLocation').click(function() {
-  showMeetingLocationInput();
-});
+$('.sidebar .card #editLocation').click(showMeetingLocationInput);
+$('.sidebar .card #deleteEvent').click(deleteSelectedEvent);
+$('.sidebar .card #thumbsUp').click(upvoteSelectedEvent);
+
+function deleteSelectedEvent() {
+  $('.sidebar .card').hide();
+  firebase.database().ref('groups')
+                     .child(userData.groupName)
+                     .child('calendar')
+                     .child(selectedEventMonth)
+                     .child(selectedEventDay)
+                     .child(selectedEventKey)
+                     .set({ });
+}
+
+function upvoteSelectedEvent() {
+  firebase.database().ref('groups')
+                     .child(userData.groupName)
+                     .child('calendar')
+                     .child(selectedEventMonth)
+                     .child(selectedEventDay)
+                     .child(selectedEventKey)
+                     .child('upvotes')
+                     .child(firebase.auth().currentUser.email.split('@')[0])
+                     .set(true);
+}
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -112,13 +146,24 @@ function showGroupsPage() {
   $('.groupsPage').css('display', 'flex');
 }
 
-function initStudyBuddy() {
+async function initStudyBuddy() {
   loadUserDetails();
+  await loadGroupDetails();
   followGroupCalendar();
 }
 
 function loadUserDetails() {
-  $('.header .user-info').text(firebase.auth().currentUser.email);
+  $('.header .user-info').text('You are ' + firebase.auth().currentUser.email + '.  You are in the "' + userData.groupName + '" study group.');
+}
+
+function loadGroupDetails() {
+  return new Promise(function(resolve, reject) {
+    firebase.database().ref('groups').child(userData.groupName).once('value', snapshot => {
+      groupData = snapshot.val();
+      groupMemberCount = Object.keys(groupData.members).length;
+      resolve();
+    });
+  });
 }
 
 let calendarEvents = {};
@@ -127,6 +172,7 @@ function followGroupCalendar() {
   let month = new Date().getMonth();
   let day = new Date().getDate();
   firebase.database().ref('groups').child(userData.groupName).child('calendar').on('value', function(snapshot) {
+    $('.day > :not(.dayInfo)').remove();
     if (!snapshot.val() || !snapshot.val()[month]) return;
     let monthData = snapshot.val()[month];
     $('.day').each(function() {
@@ -134,13 +180,24 @@ function followGroupCalendar() {
       let dayEvents = monthData[dayNumber];
       for (let key in dayEvents) {
         let testCondition = $('.event-template[data-firebase-key=' + key + ']');
-        if (!testCondition.length) {
+        //if (!testCondition.length) {
+        if (true) {
           let eventData = dayEvents[key];
           calendarEvents[key] = eventData;
           let copyButton = $('<div>');
           copyButton.addClass(eventData.eventType).addClass('live').addClass('event-template');
           copyButton.attr('data-firebase-key', key);
+          copyButton.attr('data-monthOfYear', $(this).attr('data-monthOfYear'));
+          copyButton.attr('data-dayOfMonth', $(this).attr('data-dayOfMonth'));
+          let voteCount = eventData.upvotes ? Object.keys(eventData.upvotes).length : 0;
+          if (voteCount === groupMemberCount) {
+            copyButton.addClass('approved');
+          }
+          copyButton.text(eventData.creator);
           $('.day[data-dayOfMonth=' + dayNumber + ']').append(copyButton);
+        }
+        if (key === selectedEventKey) {
+          showEventCard(key);
         }
       }
     });
@@ -186,6 +243,7 @@ function drag(ev) {
   ev.dataTransfer.setData('text', ev.target.id);
 }
 function drop(ev) {
+  if (!$(ev.srcElement).hasClass('day')) return;
   ev.preventDefault();
   var data = ev.dataTransfer.getData('text');
   let eventType = (data === 'preferredTemplate') ? 'preferred event-template live' : 'busy event-template live';
@@ -203,17 +261,25 @@ function drop(ev) {
                            'eventType' : eventType.replace('event-template', '').replace('live', '').trim(),
                            'month' : monthOfYear,
                            'day' : dayOfMonth,
-                           'dayName' : dayName
+                           'dayName' : dayName,
+                           'creator' : firebase.auth().currentUser.email.split('@')[0]
                          });
   let eventId = eventRef.key;
   let copyButton = $('<div>');
   copyButton.addClass(eventType);
   copyButton.attr('data-firebase-key', eventId);
+  copyButton.attr('data-monthOfYear', monthOfYear);
+  copyButton.attr('data-dayOfMonth', dayOfMonth);
 }
 
+let selectedEventKey, selectedEventMonth, selectedEventDay;
+
 $(document).on('click', '.live.event-template', function() {
+  selectedEventKey = $(this).attr('data-firebase-key');
+  selectedEventMonth = $(this).attr('data-monthOfYear');
+  selectedEventDay = $(this).attr('data-dayOfMonth');
   let templateType = $(this).attr('class');
-  showEventCard($(this).attr('data-firebase-key'), $(this).attr('data-month'), $(this).attr('data-day'), templateType);
+  showEventCard(selectedEventKey);
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -263,7 +329,7 @@ function hideMeetingLocationInput() {
   $('.card-image .input-field').hide();
 }
 
-function showEventCard(firebaseKey, cardType) {
+function showEventCard(firebaseKey) {
   hideMeetingLocationInput();
   let card = $('.sidebar .card');
   card.attr('data-firebase-key', firebaseKey);
@@ -285,6 +351,13 @@ function showEventCard(firebaseKey, cardType) {
     eventDescription = 'At least one member of your group is busy on ' + event.dayName;
   }
   if (eventWeather) eventDescription += '.  You should expect ' + eventWeather;
+  if (event.upvotes) {
+    eventDescription += '. '
+    Object.keys(event.upvotes).forEach(keyName => {
+      eventDescription += keyName + ', ';
+    });
+    eventDescription += ' have given this a thumbs-up.';
+  }
   $('.sidebar .card .card-content p').text(eventDescription);
   if (event.location) {
     let lat = event.location.lat;
@@ -292,7 +365,7 @@ function showEventCard(firebaseKey, cardType) {
     let mapUrl = 'https://maps.googleapis.com/maps/api/staticmap?center=' + lat + ',' + long + '&zoom=14&size=400x400&format=png32&maptype=roadmap&markers=size:mid%7Ccolor:yellow%7C' + lat + ',' + long + '&key=AIzaSyCmhlYrcIaalp0JkPrA2_XqDOX-wL9WXdk';
     $('.sidebar .card-image').css('background-image', 'url(' + mapUrl + ')');
   } else {
-    $('.sidebar .card-image').css('background-image', 'none');
+    $('.sidebar .card-image').css('background-image', 'url("./assets/images/map-placeholder.jpg")');
   }
 }
 

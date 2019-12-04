@@ -10,7 +10,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
   letter-spacing: 0.1em;
-  background-color: rgb(80, 100, 140);
+  background-color: rgb(60, 90, 130);
   color: white;
 }
 
@@ -71,6 +71,16 @@ body {
 
 .landing .login-form input {
   color: white;
+}
+
+.landing span.result {
+  margin: 1em;
+  padding: 1em;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+  display: inline-block;
 }
 
 .header {
@@ -144,6 +154,14 @@ body {
   box-shadow: 0px 0px 2em rgbA(0, 0, 0, 0.50);
 }
 
+.live.event-template {
+  color: white;
+  font-weight: 600;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
 .event-template span {
   font-size: 1.2em;
   letter-spacing: 0.2em;
@@ -155,6 +173,10 @@ body {
 
 .preferred.event-template {
   background-color: rgbA(50, 200, 50, 1);
+}
+
+.approved.event-template {
+  background-color: rgbA(255, 225, 0, 1.0);
 }
 
 .calendar {
